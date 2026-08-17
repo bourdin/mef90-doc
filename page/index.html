@@ -1,0 +1,214 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran + PETSc reference implementation of the variational approach to fracture">
+    <meta name="author" content="Blaise Bourdin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>Maintaining these pages &ndash; mef90 / vDef</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+      <script src="../js/MathJax-config/mathjax-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">mef90 / vDef </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Maintaining these pages</a></li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>Maintaining these pages</h1>
+    <div class="container p-2 mb-4 bg-light border rounded-3">
+      <div class="row align-items-center justify-content-between">
+        <div class="col">
+          <ul class="list-inline" style="margin-bottom:0px; display:inline">
+          </ul>
+        </div>
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-end mb-0">
+              <li class="breadcrumb-item active" aria-current="page">Maintaining these pages</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-9" id='text'>
+      <p>How this documentation is written, built, and published. None of it is needed
+to <em>read</em> the documentation — see the source files, modules, and procedures in
+the navigation bar for that.</p>
+<h2>Doc-comment convention</h2>
+<p>The <code>!!!</code> banner blocks placed immediately <em>before</em> a module, type, or
+procedure definition are picked up as its documentation (<code>predocmark: !!</code>), as
+are <code>!!!</code> comments preceding a declaration. Trailing doc comments, if ever
+needed, use <code>!&gt;</code> (<code>docmark: &gt;</code>). Comments that must <em>not</em> appear in the
+documentation — section headers inside procedure bodies, implementation notes —
+use <code>!!</code> or <code>!</code>, which FORD ignores.</p>
+<p>Authorship is recorded as FORD metadata rather than a copyright banner, one
+line per author, and must come first in the docstring:</p>
+<div class="codehilite"><pre><span></span><code><span class="c">!!! author: Blaise Bourdin (2020, bourdin@lsu.edu)</span>
+<span class="c">!!! author: Blaise Bourdin (2026, bourdin@mcmaster.ca)</span>
+<span class="c">!!!</span>
+<span class="c">!!!  aAT1: the &quot;a&quot; function of the standard AT1 model, i.e. $a(\alpha) = (1-\alpha)^2$</span>
+<span class="c">!!!</span>
+</code></pre></div>
+
+<p>FORD only reads metadata from the opening lines of a docstring, so an
+<code>author:</code> line placed after the description is silently treated as prose.</p>
+<h2>Building</h2>
+<div class="codehilite"><pre><span></span><code>make ford
+</code></pre></div>
+
+<p>creates <code>.venv-ford</code> on first use, installs FORD and the <code>doi_link</code> extension
+into it, generates <code>doc/html</code>, and cross-references the result. <code>make fordclean</code>
+removes the output. Note that <code>make doc</code> is a different target: it builds the
+LaTeX user manual <code>doc/vDef.pdf</code>.</p>
+<p>Pass <code>PETSC_SRC=&lt;petsc source tree&gt;</code> to link the PETSc calls in the source
+listings to their manual pages; the default is <code>PETSC_DIR</code>, which only holds
+sources when PETSc was built in place.</p>
+<p>The equivalent by hand is</p>
+<div class="codehilite"><pre><span></span><code><span class="nf">python3</span><span class="w"> </span><span class="p">-</span><span class="no">m</span><span class="w"> </span><span class="no">venv</span><span class="w"> </span><span class="no">.venv-ford</span><span class="w"> </span><span class="err">&amp;&amp;</span><span class="w"> </span><span class="no">.venv-ford</span><span class="err">/</span><span class="no">bin</span><span class="err">/</span><span class="no">pip</span><span class="w"> </span><span class="no">install</span><span class="w"> </span><span class="no">ford</span><span class="w"> </span><span class="p">.</span><span class="err">/</span><span class="no">doc</span><span class="err">/</span><span class="no">doi-link</span>
+<span class="na">.venv-ford</span><span class="err">/</span><span class="no">bin</span><span class="err">/</span><span class="no">ford</span><span class="w"> </span><span class="no">ford.md</span>
+</code></pre></div>
+
+<h2>Publishing</h2>
+<div class="codehilite"><pre><span></span><code>make fordpublish
+</code></pre></div>
+
+<p>rebuilds the pages and pushes them to the repository that serves them, checked
+out as an ordinary clone next to this one (<code>MEF90_DOCS</code>, cloned from
+<code>MEF90_DOCS_URL</code>). The site is served from that repository by GitHub Pages.</p>
+<p><code>MEF90_DOCS_KEEP</code> holds back the files belonging to that repository rather than
+to the generated site — its <code>README</code>, <code>LICENSE</code>, and the <code>CNAME</code> that GitHub
+writes there when a custom domain is set. Without it the publish step would
+delete them and take the custom domain down.</p>
+<h2>Preprocessor templates</h2>
+<p>Several files are compiled multiple times by the Makefiles with different macros
+(<code>MEF90_DIM=2/3</code>, <code>MEF90_ELEMENTTYPE=...</code>). FORD preprocesses each file once, so
+these pages document a single representative instantiation: <code>MEF90_DIM=3</code> with
+<code>MEF90_ELEMENTTYPE=MEF90Element3DVect</code>. References to the other instantiations
+(e.g. <code>*_MEF90Element2DScal</code>) appear unlinked.</p>
+<h2>Cross-referencing the source listings</h2>
+<p>FORD highlights the source files it renders with Pygments and does nothing else
+to them: a call goes nowhere, and Pygments gives user-defined names no colour at
+all. So <code>make ford</code> finishes by running <code>bin/ford-xref</code>, which</p>
+<ul>
+<li>links each identifier naming a documented module, type, or procedure to its
+    page, and re-tags it so the stylesheet already shipped with FORD colours it
+    as a function, class, or namespace;</li>
+<li>links PETSc calls to their manual pages on petsc.org. The section of those
+    URLs is not derivable from the routine name — <code>PetscSectionGetOffset</code> is
+    filed under <code>PetscSection</code>, <code>PetscViewerASCIIPrintf</code> under <code>Viewer</code>,
+    <code>PetscPrintf</code> under <code>Sys</code> — so it is read out of the PETSc sources the way
+    PETSc's own <code>doc/build_man_pages.py</code> reads it, from <code>SUBMANSEC</code>/<code>MANSEC</code>;</li>
+<li>re-tags the PETSc error-checking macros (<code>PetscCall</code>, <code>SETERRQ</code>, ...), which
+    are preprocessor macros rather than Fortran keywords and so are invisible to
+    the lexer even though they open nearly every statement in this codebase.</li>
+</ul>
+<p>Because Fortran is case insensitive and the listings are only syntax
+highlighted, a local variable sharing a name with an entity is linked too;
+definition sites are left alone so that a procedure does not link to itself.</p>
+<p><code>bin/ford-xref</code> also resets the underline FORD's line-number anchors would
+otherwise paint across every cross-referenced line, in <code>doc/user.css</code>.</p>
+<h2>DOI identifiers</h2>
+<p>DOIs written as plain text (<code>doi:10.xxxx/...</code>) are turned into links to
+<code>https://doi.org/...</code> automatically by the <code>doi_link</code> markdown extension in
+<code>doc/doi-link/</code>.</p>
+    </div>
+  </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              mef90 / vDef
+ was developed by Blaise Bourdin<br>              &copy; 2026 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

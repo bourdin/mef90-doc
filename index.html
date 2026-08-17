@@ -54,6 +54,7 @@
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="page/index.html">Maintaining these pages</a></li>
                   <li class="nav-item">
                     <a class="nav-link" href="./lists/files.html">Source Files</a>
                   </li>
@@ -100,53 +101,21 @@
       <div class="row" id='text'>
         <div class=col-md-8>
           <h1>mef90 / vDef</h1>
-          <p>Documentation for the mef90 / vDef codebase, generated with
-<a href="https://forddocs.readthedocs.io">FORD</a>.</p>
-<p>Doc-comment convention: the <code>!!!</code> banner blocks placed immediately <em>before</em> a
-module, type, or procedure definition are picked up as its documentation
-(<code>predocmark: !!</code>), as are <code>!!!</code> comments preceding a declaration. Trailing
-doc comments, if ever needed, use <code>!&gt;</code> (<code>docmark: &gt;</code>). Comments that must
-<em>not</em> appear in the documentation — section headers inside procedure bodies,
-implementation notes — use <code>!!</code> or <code>!</code>, which FORD ignores.</p>
-<p>Note on preprocessor templates: several files are compiled multiple times by the
-Makefiles with different macros (<code>MEF90_DIM=2/3</code>, <code>MEF90_ELEMENTTYPE=...</code>). FORD
-preprocesses each file once, so these pages document a single representative
-instantiation: <code>MEF90_DIM=3</code> with <code>MEF90_ELEMENTTYPE=MEF90Element3DVect</code>.
-References to the other instantiations (e.g. <code>*_MEF90Element2DScal</code>) appear
-unlinked.</p>
-<p>To rebuild these pages:</p>
-<div class="codehilite"><pre><span></span><code>make ford
-</code></pre></div>
-
-<p>which creates <code>.venv-ford</code> on first use and installs FORD and the <code>doi_link</code>
-extension into it. <code>make fordclean</code> removes the generated <code>doc/html</code>. Note that
-<code>make doc</code> is a different target: it builds the LaTeX user manual <code>doc/vDef.pdf</code>.</p>
-<p>The equivalent by hand is</p>
-<div class="codehilite"><pre><span></span><code><span class="nf">python3</span><span class="w"> </span><span class="p">-</span><span class="no">m</span><span class="w"> </span><span class="no">venv</span><span class="w"> </span><span class="no">.venv-ford</span><span class="w"> </span><span class="err">&amp;&amp;</span><span class="w"> </span><span class="no">.venv-ford</span><span class="err">/</span><span class="no">bin</span><span class="err">/</span><span class="no">pip</span><span class="w"> </span><span class="no">install</span><span class="w"> </span><span class="no">ford</span><span class="w"> </span><span class="p">.</span><span class="err">/</span><span class="no">doc</span><span class="err">/</span><span class="no">doi-link</span>
-<span class="na">.venv-ford</span><span class="err">/</span><span class="no">bin</span><span class="err">/</span><span class="no">ford</span><span class="w"> </span><span class="no">ford.md</span>
-</code></pre></div>
-
-<p>DOI identifiers written as plain text (<code>doi:10.xxxx/...</code>) are linked to
-<code>https://doi.org/...</code> automatically by the <code>doi_link</code> markdown extension in
-<code>doc/doi-link/</code>.</p>
-<p>FORD does not cross-reference the source listings it generates, so <code>make ford</code>
-finishes by running <code>bin/ford-xref</code>, which</p>
-<ul>
-<li>links each identifier naming a documented module, type, or procedure to its
-    page, and colours it the way Pygments colours a function, class, or
-    namespace. The lexer itself gives user-defined names no colour at all;</li>
-<li>links PETSc calls to their manual pages on petsc.org. The section of those
-    URLs is not derivable from the routine name, so it is read out of the PETSc
-    sources exactly as PETSc's own <code>doc/build_man_pages.py</code> does it, from
-    <code>SUBMANSEC</code>/<code>MANSEC</code>. Set <code>PETSC_SRC</code> to a PETSc source tree if <code>PETSC_DIR</code>
-    is a prefix install; without it the PETSc links are simply left out;</li>
-<li>colours the PETSc error-checking macros (<code>PetscCall</code>, <code>SETERRQ</code>, ...), which
-    are preprocessor macros rather than Fortran keywords and so are invisible to
-    the lexer even though they open nearly every statement in this codebase.</li>
-</ul>
-<p>Because Fortran is case insensitive and the listings are only syntax
-highlighted, a local variable that shares a name with an entity is linked too;
-definition sites are left alone so that a procedure does not link to itself.</p>
+          <p>Documentation for the mef90 / vDef codebase, a Fortran + PETSc reference
+implementation of the variational approach to fracture, generated with
+<a href="https://forddocs.readthedocs.io">FORD</a> from the sources at
+<a href="https://github.com/bourdin/mef90">github.com/bourdin/mef90</a>.</p>
+<p>Start from <strong>Modules</strong> for the structure of the library, <strong>Derived Types</strong> for
+the context and options objects, or <strong>Procedures</strong> to look up a single routine.</p>
+<p>In the source listings, identifiers naming a documented module, type, or
+procedure link to its page, and calls into PETSc link to the corresponding
+manual page on petsc.org.</p>
+<p>Several files are compiled more than once by the Makefiles with different
+macros, so their pages document one representative instantiation
+(<code>MEF90_DIM=3</code>, <code>MEF90_ELEMENTTYPE=MEF90Element3DVect</code>); references to the other
+instantiations appear unlinked.</p>
+<p>For how these pages are written, built, and published, see
+<a href="page/index.html">Maintaining these pages</a>.</p>
         </div>
           <div class="col-md-4">
             <div class="card card-body bg-light">
