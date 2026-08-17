@@ -1,0 +1,4315 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran + PETSc reference implementation of the variational approach to fracture">
+    <meta name="author" content="Blaise Bourdin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>m_MEF90_Elements &ndash; mef90 / vDef</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+      <script src="../js/MathJax-config/mathjax-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">mef90 / vDef </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>m_MEF90_Elements
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 7.3% of total for modules and submodules.">1511 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/m_MEF90_Elements.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_elements.f90.html'>m_MEF90_Elements.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">m_MEF90_Elements</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90elementfamily">MEF90ElementFamily</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90elementfamilylist">MEF90ElementFamilyList</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p0lagrange2d">MEF90P0Lagrange2D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p0lagrange2dboundary">MEF90P0Lagrange2DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p0lagrange3d">MEF90P0Lagrange3D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p0lagrange3dboundary">MEF90P0Lagrange3DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p1lagrange2d">MEF90P1Lagrange2D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p1lagrange2dboundary">MEF90P1Lagrange2DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p1lagrange3d">MEF90P1Lagrange3D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p1lagrange3dboundary">MEF90P1Lagrange3DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p2lagrange2d">MEF90P2Lagrange2D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p2lagrange2dboundary">MEF90P2Lagrange2DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p2lagrange3d">MEF90P2Lagrange3D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90p2lagrange3dboundary">MEF90P2Lagrange3DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q1lagrange2d">MEF90Q1Lagrange2D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q1lagrange2dboundary">MEF90Q1Lagrange2DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q1lagrange3d">MEF90Q1Lagrange3D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q1lagrange3dboundary">MEF90Q1Lagrange3DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q2lagrange2d">MEF90Q2Lagrange2D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q2lagrange2dboundary">MEF90Q2Lagrange2DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q2lagrange3d">MEF90Q2Lagrange3D</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90q2lagrange3dboundary">MEF90Q2Lagrange3DBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#variable-mef90_null_element">MEF90_NULL_ELEMENT</a>
+        </div>
+      </div>
+    </div>
+
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#enums-0"
+         aria-expanded="false" aria-controls="enums-0">
+         <h4 class="card-header bg-primary text-white">Enumerations</h4>
+      </a>
+      <div id="enums-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/m_mef90_elements.html#enum-__unnamed__~12"><em>unnamed</em></a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/m_mef90_elements.html#interface-mef90elementcreate">MEF90ElementCreate</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#interface-mef90elementdestroy">MEF90ElementDestroy</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/m_mef90_elements.html#type-mef90element2dscal">MEF90Element2DScal</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#type-mef90element2dvect">MEF90Element2DVect</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#type-mef90element3dscal">MEF90Element3DScal</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#type-mef90element3dvect">MEF90Element3DVect</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#type-mef90elementtype">MEF90ElementType</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element2dscaldestroy">Element2DScalDestroy</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element2dscaldestroyset">Element2DScalDestroySet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element2dscalinitset">Element2DScalInitSet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element2dvectdestroy">Element2DVectDestroy</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element2dvectdestroyset">Element2DVectDestroySet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element2dvectinitset">Element2DVectInitSet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element3dscaldestroy">Element3DScalDestroy</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element3dscaldestroyset">Element3DScalDestroySet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element3dscalinitset">Element3DScalInitSet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element3dvectdestroy">Element3DVectDestroy</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element3dvectdestroyset">Element3DVectDestroySet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-element3dvectinitset">Element3DVectInitSet</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange2dboundaryscalinit">ElementPLagrange2DBoundaryScalInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange2dboundaryvectinit">ElementPLagrange2DBoundaryVectInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange2dscalinit">ElementPLagrange2DScalInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange2dvectinit">ElementPLagrange2DVectInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange3dboundaryscalinit">ElementPLagrange3DBoundaryScalInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange3dboundaryvectinit">ElementPLagrange3DBoundaryVectInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange3dscalinit">ElementPLagrange3DScalInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-elementplagrange3dvectinit">ElementPLagrange3DVectInit</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-mef90elementgettype">MEF90ElementGetType</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-mef90elementgettypeboundary">MEF90ElementGetTypeBoundary</a>
+            <a class="list-group-item" href="../module/m_mef90_elements.html#proc-mef90elementsinitialize_private">MEF90ElementsInitialize_Private</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_c_binding'>iso_c_binding</a></li>
+                  <li class="list-inline-item"><a href='m_mef90_linalg.html'>m_MEF90_LinAlg</a></li>
+                  <li class="list-inline-item"><a href='m_mef90_parameters.html'>m_MEF90_Parameters</a></li>
+                  <li class="list-inline-item"><a href='m_mef90_utils.html'>m_MEF90_Utils</a></li>
+                  <li class="list-inline-item">petscdmplex</li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90elementfamily"></span>
+              character(kind=c_char, len=MEF90MXSTRLEN),
+            </td>
+              <td>public,</td>
+            <td>
+parameter,               dimension(4)
+            </td>
+            <td>::</td>
+            <td><strong>MEF90ElementFamily</strong></td>
+<td> =</td>
+                <td>[&#34;Lagrange           &#34;, &#34;MEF90ElementFamily &#34;, &#34;prefix_            &#34;, c_null_char//&#34;                  &#34;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90elementfamilylist"></span>
+              character(len=MEF90MXSTRLEN),
+            </td>
+              <td>protected,</td>
+            <td>
+              dimension(4)
+            </td>
+            <td>::</td>
+            <td><strong>MEF90ElementFamilyList</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p0lagrange2d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P0Lagrange2D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P0Lagrange2D&#34;, [0, 0, 1, 0], 1, 2, 0, 0)</td>
+            <td>
+                <p>P0 pseudo-elements. These are used for creating sections only</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p0lagrange2dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P0Lagrange2DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P0Lagrange2DBoundary&#34;, [0, 1, 0, 0], 1, 2, 0, 0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p0lagrange3d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P0Lagrange3D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P0Lagrange3D&#34;, [0, 0, 0, 1], 1, 3, 0, 0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p0lagrange3dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P0Lagrange3DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P0Lagrange3DBoundary&#34;, [0, 0, 1, 0], 1, 3, 0, 0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p1lagrange2d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P1Lagrange2D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P1Lagrange2D&#34;, [1, 0, 0, 0], 3, 2, 0, 1)</td>
+            <td>
+                <p>P1 Simplicial Lagrange elements</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p1lagrange2dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P1Lagrange2DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P1Lagrange2DBoundary&#34;, [1, 0, 0, 0], 2, 2, 1, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p1lagrange3d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P1Lagrange3D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P1Lagrange3D&#34;, [1, 0, 0, 0], 4, 3, 0, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p1lagrange3dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P1Lagrange3DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P1Lagrange3DBoundary&#34;, [1, 0, 0, 0], 3, 3, 1, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p2lagrange2d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P2Lagrange2D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P2Lagrange2D&#34;, [1, 1, 0, 0], 6, 2, 0, 2)</td>
+            <td>
+                <p>P2 Simplicial Lagrange elements</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p2lagrange2dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P2Lagrange2DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P2Lagrange2DBoundary&#34;, [1, 1, 0, 0], 3, 2, 1, 2)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p2lagrange3d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P2Lagrange3D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P2Lagrange3D&#34;, [1, 1, 0, 0], 10, 3, 0, 2)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90p2lagrange3dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90P2Lagrange3DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90P2Lagrange3DBoundary&#34;, [1, 1, 0, 0], 6, 3, 1, 2)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q1lagrange2d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q1Lagrange2D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q1Lagrange2D&#34;, [1, 0, 0, 0], 4, 2, 0, 1)</td>
+            <td>
+                <p>Q1 tensor product Lagrange elements</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q1lagrange2dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q1Lagrange2DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q1Lagrange2DBoundary&#34;, [1, 0, 0, 0], 2, 2, 1, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q1lagrange3d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q1Lagrange3D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q1Lagrange3D&#34;, [1, 0, 0, 0], 8, 3, 0, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q1lagrange3dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q1Lagrange3DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q1Lagrange3DBoundary&#34;, [1, 0, 0, 0], 4, 3, 1, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q2lagrange2d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q2Lagrange2D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q2Lagrange2D&#34;, [1, 1, 0, 1], 9, 2, 0, 1)</td>
+            <td>
+                <p>Q2 tensor product Lagrange elements</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q2lagrange2dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q2Lagrange2DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q2Lagrange2DBoundary&#34;, [1, 1, 0, 0], 3, 2, 1, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q2lagrange3d"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q2Lagrange3D</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q2Lagrange3D&#34;, [1, 1, 1, 1], 27, 3, 0, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90q2lagrange3dboundary"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Q2Lagrange3DBoundary</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;MEF90Q2Lagrange3DBoundary&#34;, [1, 1, 0, 1], 9, 3, 1, 1)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90_null_element"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90_NULL_ELEMENT</strong></td>
+<td> =</td>
+                <td>MEF90ElementType(&#34;NULL&#34;, [0, 0, 0, 0], 0, 0, 0, 0)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Enumerations</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="enum-__unnamed__~12"></span><h3>enum, bind(c)</h3></div>
+    <div class="card-body">
+      <h4>Enumerators</h4>
+      <table class="table table-striped varlist">
+        <tbody>
+            <tr>
+              <td>enumerator</td><td>::</td>
+              <td><strong>MEF90ElementFamilyLagrange</strong></td><td> = </td><td>0</td><td></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-mef90elementcreate"></span>
+      <h3>public        interface <a href='../interface/mef90elementcreate.html'>MEF90ElementCreate</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element2dscalinitset.html'>Element2DScalInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+
+    </h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2014-2022, bourdin@lsu.edu)
+Blaise Bourdin (2022, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+  <p>Element2DScalInitSet:</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~39"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~14"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~134"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element2dvectinitset.html'>Element2DVectInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~40"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis~2"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~2"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~2"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~15"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~135"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element3dscalinitset.html'>Element3DScalInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~41"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis~3"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~3"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~3"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~16"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~136"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element3dvectinitset.html'>Element3DVectInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~42"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis~4"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~4"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~4"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~17"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~137"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-mef90elementdestroy"></span>
+      <h3>public        interface <a href='../interface/mef90elementdestroy.html'>MEF90ElementDestroy</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element2dscaldestroy.html'>Element2DScalDestroy</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~13"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~146"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element2dvectdestroy.html'>Element2DVectDestroy</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~14"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~147"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element3dscaldestroy.html'>Element3DScalDestroy</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~15"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~148"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element3dvectdestroy.html'>Element3DVectDestroy</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~16"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~149"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element2dscaldestroyset.html'>Element2DScalDestroySet</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~17"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~150"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element2dvectdestroyset.html'>Element2DVectDestroySet</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~18"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~151"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element3dscaldestroyset.html'>Element3DScalDestroySet</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~19"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~152"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    public  subroutine <a href='../proc/element3dvectdestroyset.html'>Element3DVectDestroySet</a>(dElem, ierr)  
+
+    </h3>
+    
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~20"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~153"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-mef90element2dscal"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bf"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gauss_c"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Gauss_C</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grad_bf"></span>
+              type(<a href='../type/vect2d.html'>Vect2D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Grad_BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal"></span>
+              type(<a href='../type/vect2d.html'>Vect2D</a>),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-mef90element2dvect"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bf~2"></span>
+              type(<a href='../type/vect2d.html'>Vect2D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gauss_c~2"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Gauss_C</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grads_bf"></span>
+              type(<a href='../type/mats2d.html'>MatS2D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>GradS_BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grad_bf~2"></span>
+              type(<a href='../type/mat2d.html'>Mat2D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Grad_BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~2"></span>
+              type(<a href='../type/vect2d.html'>Vect2D</a>),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-mef90element3dscal"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bf~3"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gauss_c~3"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Gauss_C</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grad_bf~3"></span>
+              type(<a href='../type/vect3d.html'>Vect3D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Grad_BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~3"></span>
+              type(<a href='../type/vect3d.html'>Vect3D</a>),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-mef90element3dvect"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bf~4"></span>
+              type(<a href='../type/vect3d.html'>Vect3D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gauss_c~4"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Gauss_C</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grads_bf~2"></span>
+              type(<a href='../type/mats3d.html'>MatS3D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>GradS_BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-grad_bf~4"></span>
+              type(<a href='../type/mat3d.html'>Mat3D</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:, :), pointer
+            </td>
+            <td>::</td>
+            <td><strong>Grad_BF</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~4"></span>
+              type(<a href='../type/vect3d.html'>Vect3D</a>),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-mef90elementtype"></span>
+      <h3>
+        type, public&nbsp;::&nbsp;
+        <a href='../type/mef90elementtype.html'>MEF90ElementType</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name"></span>
+              character(len=MEF90MXSTRLEN),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Name</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-codim"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>coDim</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>The dimension of the cell associated with the element</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dim~14"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dim</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>numDof = numVertexDof * numVertex + numEdgeDof * numEdge
+         + numFaceDof * numFace + numCellDof</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-numdof"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>numDoF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-numdofs"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(4)
+            </td>
+            <td>::</td>
+            <td><strong>numDofs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>Number of dof at each
+  vertex edge face cell in 3D,
+  vertex edge cell in 2D (last value is unused, i.e. always use depth to locate DoF)
+i.e. point depth -1</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-order"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>order</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+<p>The co-dimension of the cell associated with the element</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element2dscaldestroy"></span> <h3>public  subroutine <a href='../proc/element2dscaldestroy.html'>Element2DScalDestroy</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~13"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~146"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element2dscaldestroyset"></span> <h3>public  subroutine <a href='../proc/element2dscaldestroyset.html'>Element2DScalDestroySet</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~17"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~150"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element2dscalinitset"></span> <h3>public  subroutine <a href='../proc/element2dscalinitset.html'>Element2DScalInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2014-2022, bourdin@lsu.edu)
+Blaise Bourdin (2022, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+  <p>Element2DScalInitSet:</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~39"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~14"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~134"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element2dvectdestroy"></span> <h3>public  subroutine <a href='../proc/element2dvectdestroy.html'>Element2DVectDestroy</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~14"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~147"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element2dvectdestroyset"></span> <h3>public  subroutine <a href='../proc/element2dvectdestroyset.html'>Element2DVectDestroySet</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~18"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~151"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element2dvectinitset"></span> <h3>public  subroutine <a href='../proc/element2dvectinitset.html'>Element2DVectInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~40"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis~2"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~2"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~2"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~15"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~135"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element3dscaldestroy"></span> <h3>public  subroutine <a href='../proc/element3dscaldestroy.html'>Element3DScalDestroy</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~15"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~148"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element3dscaldestroyset"></span> <h3>public  subroutine <a href='../proc/element3dscaldestroyset.html'>Element3DScalDestroySet</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~19"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~152"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element3dscalinitset"></span> <h3>public  subroutine <a href='../proc/element3dscalinitset.html'>Element3DScalInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~41"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis~3"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~3"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~3"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~16"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~136"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element3dvectdestroy"></span> <h3>public  subroutine <a href='../proc/element3dvectdestroy.html'>Element3DVectDestroy</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~16"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~149"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element3dvectdestroyset"></span> <h3>public  subroutine <a href='../proc/element3dvectdestroyset.html'>Element3DVectDestroySet</a>(dElem, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~20"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~153"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-element3dvectinitset"></span> <h3>public  subroutine <a href='../proc/element3dvectinitset.html'>Element3DVectInitSet</a>(dm, cellIS, dElem, dQuadratureOrder, elemType, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~42"></span>
+              type(tDM),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellis~4"></span>
+              type(tIS),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellIS</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~4"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td></td>
+              <td></td>            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~4"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~17"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~137"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange2dboundaryscalinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange2dboundaryscalinit.html'>ElementPLagrange2DBoundaryScalInit</a>(dElem, l, outerNormal, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~6"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~4"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~9"></span>
+              type(<a href='../type/vect2d.html'>Vect2D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~2"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~6"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~139"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange2dboundaryvectinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange2dboundaryvectinit.html'>ElementPLagrange2DBoundaryVectInit</a>(dElem, length, outerNormal, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~8"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-length~3"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>length</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~10"></span>
+              type(<a href='../type/vect2d.html'>Vect2D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~4"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~8"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~141"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange2dscalinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange2dscalinit.html'>ElementPLagrange2DScalInit</a>(dElem, Bt, DetBinv, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~5"></span>
+              type(<a href='../type/mef90element2dscal.html'>MEF90Element2DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bt~5"></span>
+              type(<a href='../type/mat2d.html'>Mat2D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Bt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-detbinv"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>DetBinv</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder"></span>
+              integer(kind=C_INT32_T)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~5"></span>
+              integer(kind=C_INT32_T)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~138"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange2dvectinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange2dvectinit.html'>ElementPLagrange2DVectInit</a>(dElem, Bt, DetBinv, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~7"></span>
+              type(<a href='../type/mef90element2dvect.html'>MEF90Element2DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bt~6"></span>
+              type(<a href='../type/mat2d.html'>Mat2D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Bt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-detbinv~2"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>DetBinv</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~3"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~7"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~140"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange3dboundaryscalinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange3dboundaryscalinit.html'>ElementPLagrange3DBoundaryScalInit</a>(dElem, area, outerNormal, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~10"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-area~3"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>area</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~11"></span>
+              type(<a href='../type/vect3d.html'>Vect3D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~6"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~10"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~143"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange3dboundaryvectinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange3dboundaryvectinit.html'>ElementPLagrange3DBoundaryVectInit</a>(dElem, area, outerNormal, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~12"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-area~4"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>area</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-outernormal~12"></span>
+              type(<a href='../type/vect3d.html'>Vect3D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>outerNormal</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~8"></span>
+              integer(kind=C_INT32_T)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~12"></span>
+              integer(kind=C_INT32_T)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~145"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange3dscalinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange3dscalinit.html'>ElementPLagrange3DScalInit</a>(dElem, Bt, DetBinv, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~9"></span>
+              type(<a href='../type/mef90element3dscal.html'>MEF90Element3DScal</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bt~7"></span>
+              type(<a href='../type/mat3d.html'>Mat3D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Bt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-detbinv~3"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>DetBinv</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~5"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~9"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~142"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-elementplagrange3dvectinit"></span> <h3>public  subroutine <a href='../proc/elementplagrange3dvectinit.html'>ElementPLagrange3DVectInit</a>(dElem, Bt, detBinv, dPolynomialOrder, dQuadratureOrder, ierr)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delem~11"></span>
+              type(<a href='../type/mef90element3dvect.html'>MEF90Element3DVect</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dElem</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bt~8"></span>
+              type(<a href='../type/mat3d.html'>Mat3D</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Bt</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-detbinv"></span>
+              real(kind=C_DOUBLE),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>detBinv</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dpolynomialorder~7"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dPolynomialOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dquadratureorder~11"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dQuadratureOrder</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~144"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mef90elementgettype"></span> <h3>public  subroutine <a href='../proc/mef90elementgettype.html'>MEF90ElementGetType</a>(elemFamily, order, cellType, elemType, ierr)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2022, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+  <p>MEF90ElementGetType: Return an element given a family and order</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemfamily~3"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemFamily</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-order~2"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>order</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-celltype~8"></span>
+              type(eDMPolytopeType),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~12"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~132"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mef90elementgettypeboundary"></span> <h3>public  subroutine <a href='../proc/mef90elementgettypeboundary.html'>MEF90ElementGetTypeBoundary</a>(elemFamily, order, cellType, elemType, ierr)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2022, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+  <p>MEF90ElementGetTypeBoundary: Return an element given a family and order</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemfamily~4"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemFamily</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-order~3"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>order</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-celltype~9"></span>
+              type(eDMPolytopeType),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cellType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-elemtype~13"></span>
+              type(<a href='../type/mef90elementtype.html'>MEF90ElementType</a>),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>elemType</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~133"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mef90elementsinitialize_private"></span> <h3>public  subroutine <a href='../proc/mef90elementsinitialize_private.html'>MEF90ElementsInitialize_Private</a>(ierr)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2022, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+  <p>MEF90ElementsInitialize_Private:</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~131"></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              mef90 / vDef
+ was developed by Blaise Bourdin<br>              &copy; 2026 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

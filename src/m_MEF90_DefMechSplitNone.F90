@@ -1,0 +1,150 @@
+#include "../MEF90/mef90.inc"
+module m_MEF90_DefMechSplitNone
+#include "petsc/finclude/petsc.h"
+use m_MEF90_DefMechSplit_class
+use m_MEF90_Materials
+use m_MEF90_HookesLaw
+implicit none(type)
+private
+public :: MEF90DefMechSplitNone
+
+type, extends(MEF90DefMechSplit) :: MEF90DefMechSplitNone
+contains
+   procedure, pass(self)  :: setFromOptions => MEF90DefMechSplitNone_setFromOptions
+   procedure, pass(self)  :: view_internal => MEF90DefMechSplitNone_view
+   procedure, pass(self)  :: setup => setupNONE
+   procedure, pass(self)  :: EED => EEDNone
+   procedure, pass(self)  :: DEED => DEEDNone
+   procedure, pass(self)  :: D2EED => D2EEDNone
+end type MEF90DefMechSplitNone
+
+
+contains
+#undef __FUNCT__
+#define __FUNCT__ "MEF90DefMechSplitNone_setFromOptions"
+!!! author: Blaise Bourdin (2020, bourdin@lsu.edu)
+!!! author: Blaise Bourdin (2026, bourdin@mcmaster.ca)
+!!!
+!!!  MEF90DefMechSplitNone_setFromOptions: the default constructor for a MEF90DefMechSplitNone
+!!!
+   subroutine MEF90DefMechSplitNone_setFromOptions(self, ierr)
+      class(MEF90DefMechSplitNone), intent(inout) :: self
+      PetscErrorCode, intent(inout)               :: ierr
+      PetscInt                                    :: verbose = 0
+
+      ! self%damageOrder = 0
+      self%quadratureOrder = 2
+      self%type = 'MEF90DefMechSplitNone'
+
+      !! MEF90DefMechSplitNone has no options
+      PetscCall(PetscOptionsGetInt(PETSC_NULL_OPTIONS, PETSC_NULL_CHARACTER, "-verbose", verbose, PETSC_NULL_BOOL, ierr))
+      if (verbose > 0) then
+         call self%view(PETSC_VIEWER_STDOUT_WORLD,ierr)
+      end if
+   end subroutine MEF90DefMechSplitNone_setFromOptions
+
+#undef __FUNCT__
+#define __FUNCT__ "MEF90DefMechSplitNone_view"
+!!! author: Blaise Bourdin (2026, bourdin@mcmaster.ca)
+!!!
+!!!  MEF90DefMechSplitNone_view: view a MEF90DefMechSplitNone
+!!!
+   subroutine MEF90DefMechSplitNone_view(self, viewer, ierr)
+      class(MEF90DefMechSplitNone), intent(in)    :: self
+      type(tPetscViewer), intent(in)              :: viewer
+      PetscErrorCode,intent(inout)                :: ierr
+
+      character(len=MEF90MXSTRLEN, kind=c_char)   :: IOBuffer
+      character(len=MEF90MXSTRLEN, kind=c_char)   :: viewerType
+
+      PetscCall(PetscViewerGetType(viewer, viewerType, ierr))
+      if (viewerType == 'ascii') then
+         write(IOBuffer, "(A,': Options for MEF90DefMechSplit\n')") trim(self%prefix) // "split"
+         PetscCall(PetscViewerASCIIPrintf(viewer, IOBuffer, ierr))
+         write(IOBuffer, "('         type: none\n')")
+         PetscCall(PetscViewerASCIIPrintf(viewer, IOBuffer, ierr))
+         write(IOBuffer, "('         No options\n')")
+         PetscCall(PetscViewerASCIIPrintf(viewer, IOBuffer, ierr))
+      end if
+   end subroutine MEF90DefMechSplitNone_view
+
+#undef __FUNCT__
+#define __FUNCT__ "setupNONE"
+!!! author: Blaise Bourdin (2020, bourdin@lsu.edu)
+!!! author: Blaise Bourdin (2026, bourdin@mcmaster.ca)
+!!!
+!!!  setupNONE: the setup routine for a MEF90DefMechSplitNone, which does nothing since there is no split
+!!!
+   subroutine setupNONE(self, Strain, ierr)
+      use m_MEF90
+      implicit none(type, external)
+
+      class(MEF90DefMechSplitNone), intent(inout) :: self
+      class(mef90Mat), intent(IN)                 :: Strain
+      PetscErrorCode, intent(inout)               :: ierr
+
+      self%strain = Strain
+   end subroutine setupNONE
+
+
+#undef __FUNCT__
+#define __FUNCT__ "EEDNone"
+!!! author: Blaise Bourdin (2020, bourdin@lsu.edu)
+!!! author: Blaise Bourdin (2026, bourdin@mcmaster.ca)
+!!!
+!!!  EEDNone: Compute the positive and negative part of the elastic energy density associated with a strain tensor
+!!!           without a split, we have EEDPlus  = 1/2 HookesLaw Strain \cdot Strain
+!!!                                    EEDMinus = 0
+!!!
+   subroutine EEDNone(self, HookesLaw, phi, EEDPlus, EEDMinus, ierr)
+      class(MEF90DefMechSplitNone), intent(IN) :: self
+      class(MEF90HookesLaw), intent(IN)        :: HookesLaw
+      class(mef90Mat), intent(IN)              :: phi
+      PetscReal, intent(OUT)                   :: EEDPlus, EEDMinus
+      PetscErrorCode, intent(inout)            :: ierr
+
+      Call HookesLaw%multmult(phi, phi, EEDPlus, ierr)
+      EEDPlus = EEDPlus * 0.5_kr
+      EEDMinus = 0.0_kr
+   end subroutine EEDNone
+
+#undef __FUNCT__
+#define __FUNCT__ "DEEDNone"
+!!! author: Blaise Bourdin (2020, bourdin@lsu.edu)
+!!! author: Blaise Bourdin (2026, bourdin@mcmaster.ca)
+!!!
+!!!  DEEDNone: Compute the derivative of the positive and negative part of the elastic energy density (positive and negative stress)
+!!!               evaluated at the strain tensor Strain.
+!!!           without a split, we have DEEDPlus  = HookesLaw Strain
+!!!                                    DEEDMinus = 0
+!!!
+   subroutine DEEDNone(self, HookesLaw, phi, DEEDPlus, DEEDMinus, ierr)
+      class(MEF90DefMechSplitNone), intent(IN) :: self
+      class(MEF90HookesLaw), intent(IN)        :: HookesLaw
+      class(mef90Mat), intent(IN)              :: phi
+      PetscReal, intent(OUT)                   :: DEEDPlus, DEEDMinus
+      PetscErrorCode, intent(inout)            :: ierr
+
+      call HookesLaw%multmult(self%strain, phi, DEEDPlus, ierr)
+      DEEDminus = 0.0_kr
+   end subroutine DEEDNone
+
+#undef __FUNCT__
+#define __FUNCT__ "D2EEDNone"
+!!! author: Blaise Bourdin (2020, bourdin@lsu.edu)
+!!!
+!!!  D2EEDNone: Compute the second derivative of the positive and negative part of the elastic energy density (positive and negative stress)
+!!!               evaluated at the strain tensor Strain.
+!!!               without a split, D2EEDPlus = HookesLaw, D2EEDMinus = 0
+!!!
+   subroutine D2EEDNone(self, HookesLaw, phi, psi, D2EEDPlus, D2EEDMinus, ierr)
+      class(MEF90DefMechSplitNone), intent(IN) :: self
+      class(MEF90HookesLaw), intent(IN)        :: HookesLaw
+      class(mef90Mat), intent(IN)              :: phi, psi
+      PetscReal, intent(OUT)                   :: D2EEDPlus, D2EEDMinus
+      PetscErrorCode, intent(inout)            :: ierr
+
+      call HookesLaw%multmult(phi, psi, D2EEDPlus, ierr)
+      D2EEDMinus = 0.0_kr
+   end subroutine D2EEDNone
+end module m_MEF90_DefMechSplitNone

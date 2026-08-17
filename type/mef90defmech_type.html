@@ -1,0 +1,1397 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran + PETSc reference implementation of the variational approach to fracture">
+    <meta name="author" content="Blaise Bourdin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>MEF90DefMech_Type &ndash; mef90 / vDef </title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+      <script src="../js/MathJax-config/mathjax-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">mef90 / vDef </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>MEF90DefMech_Type
+      <small>Derived Type</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="<p> 8.2% of total for derived types.</p>Including implementation: 289 statements,  8.0% of total for derived types.">41 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/m_MEF90_DefMechClass.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmechclass.f90.html'>m_MEF90_DefMechClass.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></li>
+            <li class="breadcrumb-item active" aria-current="page">MEF90DefMech_Type</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotobodyforcesf">IOToBodyForceSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotoboundaryforcesf">IOToBoundaryForceSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotocohesivedisplacementsf">IOToCohesiveDisplacementSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotocumulatedplasticdisssf">IOToCumulatedPlasticDissSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotodamagesf">IOToDamageSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotodisplacementsf">IOToDisplacementSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotoplasticstrainsf">IOToPlasticStrainSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotopressureforcesf">IOToPressureForceSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iotostresssf">IOToStressSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-iototemperaturesf">IOToTemperatureSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-mef90ctx~8">MEF90Ctx</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-petscctx~12">PETScCtx</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-analysistime">analysisTime</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-bodyforce">bodyForce</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-bodyforcetoiosf">bodyForceToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-boundaryforce">boundaryForce</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-boundaryforcetoiosf">boundaryForceToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-cohesivedisplacement~2">cohesiveDisplacement</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-cohesivedisplacementtoiosf">cohesiveDisplacementToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-comm~18">comm</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-cumulatedplasticdisstoiosf">cumulatedPlasticDissToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-cumulatedplasticdissipation">cumulatedPlasticDissipation</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-currentset">currentSet</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-damageconstraintssf">damageConstraintsSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-damagelocal">damageLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-damagetoiosf">damageToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-dim~9">dim</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-displacementconstraintssf">displacementConstraintsSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-displacementlocal">displacementLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-displacementlowerboundlocal">displacementLowerBoundLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-displacementprevioussteplocal">displacementPreviousStepLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-displacementtoiosf">displacementToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-displacementupperboundlocal">displacementUpperBoundLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-globalenergyviewer">globalEnergyViewer</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-hasdisplacementbounds">hasDisplacementBounds</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-hasunilateralcontact">hasUnilateralContact</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-megadm">megaDM</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-name~7">name</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-partialdamagelocal">partialDamageLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-plasticstrain~2">plasticStrain</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-plasticstraintoiosf">plasticStrainToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-prefix~13">prefix</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-pressureforce~2">pressureForce</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-pressureforcetoiosf">pressureForceToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-setenergyviewer">setEnergyViewer</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-stress~2">stress</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-stresstoiosf">stressToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-temperaturelocal">temperatureLocal</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-temperaturetoiosf">temperatureToIOSF</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#variable-timestep">timeStep</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#boundprocs-0"
+         aria-expanded="false" aria-controls="boundprocs-0">
+         <h4 class="card-header bg-primary text-white">Type-Bound Procedures</h4>
+      </a>
+      <div id="boundprocs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../type/mef90defmech_type.html#boundprocedure-setfromoptions~10">setFromOptions</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#boundprocedure-view~2">view</a>
+            <a class="list-group-item" href="../type/mef90defmech_type.html#boundprocedure-view_internal~11">view_internal</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      <h2 id="type-def-statement">
+        type, public, extends(<a href='mef90object.html'>MEF90Object</a>) :: MEF90DefMech_Type</h2>
+    
+    <br>
+
+    <section>
+    <h2>Components</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotobodyforcesf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToBodyForceSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotoboundaryforcesf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToBoundaryForceSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotocohesivedisplacementsf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToCohesiveDisplacementSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotocumulatedplasticdisssf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToCumulatedPlasticDissSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotodamagesf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToDamageSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotodisplacementsf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToDisplacementSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotoplasticstrainsf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToPlasticStrainSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotopressureforcesf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToPressureForceSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iotostresssf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToStressSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iototemperaturesf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOToTemperatureSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90ctx~8"></span>
+              type(<a href='mef90ctx_type.html'>MEF90Ctx_Type</a>),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Ctx</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-petscctx~12"></span>
+              type(c_ptr),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>PETScCtx</strong></td>
+<td> =</td>
+                <td>C_NULL_PTR</td>
+            <td>
+                <p>Handle on self, set once in MEF90DefMechCreate with PETScCtx = c_loc(DefMech), and handed to
+PETSc wherever an application context is expected: SNESSetFunction, SNESSetJacobian,
+TAOSetObjective, ... The callbacks in m_MEF90_DefMech recover the context with
+   call c_f_pointer(PETScCtx, MEF90DefMechCtx)</p>
+<p>MEF90DefMech_Type cannot be passed to PETSc directly, the way MEF90DefMechCtx_Type was up to
+mef90 0.5.2, because extending MEF90Object gives it type-bound procedures and PETSc declares
+its context arguments as assumed-type. This has to be a component rather than a local or an
+inline c_loc(), for lifetime reasons that are easy to get wrong: see the note at the top of
+MEF90/m_MEF90_BaseClass.F90 before changing any of this.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-analysistime"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>analysisTime</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bodyforce"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>bodyForce</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                <p>cell based vec</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bodyforcetoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bodyForceToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-boundaryforce"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>boundaryForce</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-boundaryforcetoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>boundaryForceToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cohesivedisplacement~2"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>cohesiveDisplacement</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cohesivedisplacementtoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cohesiveDisplacementToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-comm~18"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>comm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cumulatedplasticdisstoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cumulatedPlasticDissToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cumulatedplasticdissipation"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>cumulatedPlasticDissipation</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-currentset"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>currentSet</strong></td>
+<td> =</td>
+                <td>0_Ki</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-damageconstraintssf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>damageConstraintsSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-damagelocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>damageLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-damagetoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>damageToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dim~9"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dim</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-displacementconstraintssf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>displacementConstraintsSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-displacementlocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>displacementLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                <p>vertex based vec</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-displacementlowerboundlocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>displacementLowerBoundLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-displacementprevioussteplocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>displacementPreviousStepLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-displacementtoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>displacementToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-displacementupperboundlocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>displacementUpperBoundLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-globalenergyviewer"></span>
+              type(tPetscViewer),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>globalEnergyViewer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                <p>Neither the problem-wide nor the per-set options are stored: they are read from the options
+database where they are needed, with MEF90DefMechGlobalOptionsSetFromOptions and
+MEF90DefMech[Cell,Face,Vertex]SetOptionsSetFromOptions, the same way the AT model, the
+energy split, and the Hooke's law are obtained. The number of sets is obtained from the
+megaDM with MEF90DMGetNumSets.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hasdisplacementbounds"></span>
+              logical(kind=C_BOOL),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hasDisplacementBounds</strong></td>
+<td> =</td>
+                <td>PETSC_FALSE</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hasunilateralcontact"></span>
+              logical(kind=C_BOOL),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hasUnilateralContact</strong></td>
+<td> =</td>
+                <td>PETSC_FALSE</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-megadm"></span>
+              type(tDM),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>megaDM</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name~7"></span>
+              character(kind=c_char, len=MEF90MXSTRLEN),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+<td> =</td>
+                <td>&#34;NULL&#34;</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-partialdamagelocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>partialDamageLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-plasticstrain~2"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>plasticStrain</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-plasticstraintoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>plasticStrainToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prefix~13"></span>
+              character(kind=c_char, len=MEF90MXSTRLEN),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>prefix</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pressureforce~2"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>pressureForce</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pressureforcetoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pressureForceToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-setenergyviewer"></span>
+              type(tPetscViewer),
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(:), pointer
+            </td>
+            <td>::</td>
+            <td><strong>setEnergyViewer</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stress~2"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>stress</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stresstoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>stressToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturelocal"></span>
+              type(tVec),
+            </td>
+              <td>public,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>temperatureLocal</strong></td>
+<td>=&gt; </td>
+                <td>null()</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturetoiosf"></span>
+              type(tPetscSF),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureToIOSF</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-timestep"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>timeStep</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+
+
+      <section>
+        <h2>Type-Bound Procedures</h2>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-setfromoptions~10"></span>
+      <h3>
+          procedure, public, pass(self) ::
+  <strong>setFromOptions</strong> => <a href='/Users/blaise/Development/mef90/main/doc/html/proc/mef90defmechsetfromoptions.html'>MEF90DefMechSetFromOptions</a>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    public  subroutine <a href='../proc/mef90defmechsetfromoptions.html'>MEF90DefMechSetFromOptions</a>(self, ierr)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2012-14, bourdin@lsu.edu)
+Blaise Bourdin (2026, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+
+  <p>MEF90DefMechSetFromOptions: initializes a MEF90DefMech_Type from options</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='mef90defmech_type.html'>MEF90DefMech_Type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-view~2"></span>
+      <h3>
+          procedure, public, pass(self) ::
+  <strong>view</strong> => <a href='/Users/blaise/Development/mef90/main/doc/html/proc/mef90object_view.html'>MEF90Object_view</a>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private  subroutine <a href='../proc/mef90object_view.html'>MEF90Object_view</a>(self, viewer, ierr)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2026, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+
+  <p>MEF90Object_view: Views a MEF90Object and flagged it as viewed so that it is not viewed multiple times when -verbose is set to a high value</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='mef90object.html'>MEF90Object</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              type(tPetscViewer),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>viewer</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+          <div class="row">
+              <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-view_internal~11"></span>
+      <h3>
+          procedure, public, pass(self) ::
+  <strong>view_internal</strong> => <a href='/Users/blaise/Development/mef90/main/doc/html/proc/mef90defmechview.html'>MEF90DefMechView</a>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    public  subroutine <a href='../proc/mef90defmechview.html'>MEF90DefMechView</a>(self, viewer, ierr)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2026, bourdin@mcmaster.ca)</dd>
+    </dl>
+
+
+  <p>MEF90DefMechView: the default viewer for a MEF90DefMech_Type</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='mef90defmech_type.html'>MEF90DefMech_Type</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              type(tPetscViewer),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>viewer</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=C_INT32_T),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+
+          </div>
+      </section>
+
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              mef90 / vDef
+ was developed by Blaise Bourdin<br>              &copy; 2026 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

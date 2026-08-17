@@ -1,0 +1,3827 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran + PETSc reference implementation of the variational approach to fracture">
+    <meta name="author" content="Blaise Bourdin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>m_MEF90_Parameters &ndash; mef90 / vDef</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+      <script src="../js/MathJax-config/mathjax-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">mef90 / vDef </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>m_MEF90_Parameters
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.3% of total for modules and submodules.">267 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/m_MEF90_Parameters.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_parameters.f90.html'>m_MEF90_Parameters.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">m_MEF90_Parameters</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exabrt">EXABRT</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exbfid">EXBFID</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exbfmd">EXBFMD</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exbprm">EXBPRM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exbtid">EXBTID</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-excfcyl">EXCFCYL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-excfrec">EXCFREC</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-excfsph">EXCFSPH</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exclob">EXCLOB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exdbmxalnm">EXDBMXALNM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exdbmxusnm">EXDBMXUSNM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exdbvr">EXDBVR</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exdebg">EXDEBG</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exdim">EXDIM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exeblk">EXEBLK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exedbp">EXEDBP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exedsp">EXEDSP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exelbl">EXELBL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exelem">EXELEM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exelsd">EXELSD</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exelsl">EXELSL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exelsp">EXELSP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exemap">EXEMAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exesdl">EXESDL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exesl">EXESL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exfabp">EXFABP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exfasp">EXFASP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exfatl">EXFATL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exfsdl">EXFSDL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exfsl">EXFSL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exinfo">EXINFO</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exlarg">EXLARG</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exlbvr">EXLBVR</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exlmsg">EXLMSG</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exmemf">EXMEMF</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exmxrdnm">EXMXRDNM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exncf">EXNCF</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnebp">EXNEBP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnedb">EXNEDB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnedg">EXNEDG</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnedm">EXNEDM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exneds">EXNEDS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnels">EXNELS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnem">EXNEM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnemp">EXNEMP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnet4">EXNET4</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnfac">EXNFAC</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnfam">EXNFAM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnfb">EXNFB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnfs">EXNFS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnmap">EXNMAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnnm">EXNNM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnnmp">EXNNMP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnnsp">EXNNSP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnocl">EXNOCL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnode">EXNODE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnods">EXNODS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnorm">EXNORM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnosh">EXNOSH</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnsdf">EXNSDF</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnset">EXNSET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnsnl">EXNSNL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnssp">EXNSSP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exnull">EXNULL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exok">EXOK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-expmsg">EXPMSG</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exqa">EXQA</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exread">EXREAD</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exshar">EXSHAR</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exsids">EXSIDS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exssdf">EXSSDF</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exssel">EXSSEL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exsset">EXSSET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exssnl">EXSSNL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-extims">EXTIMS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-extitl">EXTITL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-extype">EXTYPE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exvers">EXVERS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exvrbs">EXVRBS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exwarn">EXWARN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exwrit">EXWRIT</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-exwrt">EXWRT</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_64bit_data">EX_64BIT_DATA</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_64bit_offset">EX_64BIT_OFFSET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_all_int64_api">EX_ALL_INT64_API</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_all_int64_db">EX_ALL_INT64_DB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_bulk_int64_api">EX_BULK_INT64_API</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_bulk_int64_db">EX_BULK_INT64_DB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_clobber">EX_CLOBBER</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_coordinate">EX_COORDINATE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_diskless">EX_DISKLESS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_edge_block">EX_EDGE_BLOCK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_edge_map">EX_EDGE_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_edge_set">EX_EDGE_SET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_elem_block">EX_ELEM_BLOCK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_elem_map">EX_ELEM_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_elem_set">EX_ELEM_SET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_face_block">EX_FACE_BLOCK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_face_map">EX_FACE_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_face_set">EX_FACE_SET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_global">EX_GLOBAL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_ids_int64_api">EX_IDS_INT64_API</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_ids_int64_db">EX_IDS_INT64_DB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_api_vers">EX_INQ_API_VERS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_coord_frames">EX_INQ_COORD_FRAMES</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_db_float_size">EX_INQ_DB_FLOAT_SIZE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_db_max_allowed_name_length">EX_INQ_DB_MAX_ALLOWED_NAME_LENGTH</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_db_max_used_name_length">EX_INQ_DB_MAX_USED_NAME_LENGTH</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_db_vers">EX_INQ_DB_VERS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_dim">EX_INQ_DIM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_eb_prop">EX_INQ_EB_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_edge">EX_INQ_EDGE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_edge_blk">EX_INQ_EDGE_BLK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_edge_map">EX_INQ_EDGE_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_edge_prop">EX_INQ_EDGE_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_edge_sets">EX_INQ_EDGE_SETS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_elem">EX_INQ_ELEM</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_elem_blk">EX_INQ_ELEM_BLK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_elem_map">EX_INQ_ELEM_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_elem_sets">EX_INQ_ELEM_SETS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_els_df_len">EX_INQ_ELS_DF_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_els_len">EX_INQ_ELS_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_els_prop">EX_INQ_ELS_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_em_prop">EX_INQ_EM_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_es_df_len">EX_INQ_ES_DF_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_es_len">EX_INQ_ES_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_es_prop">EX_INQ_ES_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_face">EX_INQ_FACE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_face_blk">EX_INQ_FACE_BLK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_face_map">EX_INQ_FACE_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_face_prop">EX_INQ_FACE_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_face_sets">EX_INQ_FACE_SETS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_file_type">EX_INQ_FILE_TYPE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_fs_df_len">EX_INQ_FS_DF_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_fs_len">EX_INQ_FS_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_fs_prop">EX_INQ_FS_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_full_group_name">EX_INQ_FULL_GROUP_NAME</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_full_group_name_len">EX_INQ_FULL_GROUP_NAME_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_group_name">EX_INQ_GROUP_NAME</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_group_name_len">EX_INQ_GROUP_NAME_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_group_parent">EX_INQ_GROUP_PARENT</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_group_root">EX_INQ_GROUP_ROOT</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_info">EX_INQ_INFO</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_invalid">EX_INQ_INVALID</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_lib_vers">EX_INQ_LIB_VERS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_max_read_name_length">EX_INQ_MAX_READ_NAME_LENGTH</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_nm_prop">EX_INQ_NM_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_nodes">EX_INQ_NODES</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_node_map">EX_INQ_NODE_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_node_sets">EX_INQ_NODE_SETS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ns_df_len">EX_INQ_NS_DF_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ns_node_len">EX_INQ_NS_NODE_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ns_prop">EX_INQ_NS_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_num_child_groups">EX_INQ_NUM_CHILD_GROUPS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_qa">EX_INQ_QA</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_side_sets">EX_INQ_SIDE_SETS</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ss_df_len">EX_INQ_SS_DF_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ss_elem_len">EX_INQ_SS_ELEM_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ss_node_len">EX_INQ_SS_NODE_LEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_ss_prop">EX_INQ_SS_PROP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_threadsafe">EX_INQ_THREADSAFE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_time">EX_INQ_TIME</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_inq_title">EX_INQ_TITLE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_invalid">EX_INVALID</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_large_model">EX_LARGE_MODEL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_maps_int64_api">EX_MAPS_INT64_API</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_maps_int64_db">EX_MAPS_INT64_DB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_mmap">EX_MMAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_netcdf4">EX_NETCDF4</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_noclassic">EX_NOCLASSIC</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_noclobber">EX_NOCLOBBER</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_nodal">EX_NODAL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_node_block">EX_NODE_BLOCK</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_node_map">EX_NODE_MAP</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_node_set">EX_NODE_SET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_normal_model">EX_NORMAL_MODEL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_noshare">EX_NOSHARE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_opt_compression_level">EX_OPT_COMPRESSION_LEVEL</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_opt_compression_shuffle">EX_OPT_COMPRESSION_SHUFFLE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_opt_compression_type">EX_OPT_COMPRESSION_TYPE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_opt_integer_size_api">EX_OPT_INTEGER_SIZE_API</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_opt_integer_size_db">EX_OPT_INTEGER_SIZE_DB</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_opt_max_name_length">EX_OPT_MAX_NAME_LENGTH</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_read">EX_READ</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_share">EX_SHARE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_side_set">EX_SIDE_SET</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ex_write">EX_WRITE</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-ki">Ki</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-kr">Kr</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-mef90infinity">MEF90INFINITY</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-mef90mxstrlen">MEF90MXSTRLEN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-mef90ninfinity">MEF90NINFINITY</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-mxlnln">MXLNLN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-mxname">MXNAME</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-mxstln">MXSTLN</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-pflop">PFlop</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-pint">PInt</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-preal">PReal</a>
+            <a class="list-group-item" href="../module/m_mef90_parameters.html#variable-flop">flop</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      <hr>
+<p>Name: exodusII.inc - Exodus II Application include file</p>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="nv">Use</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="k">include</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">define</span><span class="w"> </span><span class="nv">general</span><span class="w"> </span><span class="nv">Exodus</span><span class="w"> </span><span class="nv">II</span><span class="w"> </span><span class="nv">parameters</span>
+</code></pre></div>
+
+<hr>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="nv">Define</span><span class="w"> </span><span class="nv">Exodus</span><span class="w"> </span><span class="nv">functions</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">values</span>
+</code></pre></div>
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">petscsys</li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exabrt"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXABRT</strong></td>
+<td> =</td>
+                <td> 4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exbfid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXBFID</strong></td>
+<td> =</td>
+                <td>  1002</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exbfmd"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXBFMD</strong></td>
+<td> =</td>
+                <td>  1001</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exbprm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXBPRM</strong></td>
+<td> =</td>
+                <td>  1005</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exbtid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXBTID</strong></td>
+<td> =</td>
+                <td>  1004</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-excfcyl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXCFCYL</strong></td>
+<td> =</td>
+                <td> 2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-excfrec"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXCFREC</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-excfsph"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXCFSPH</strong></td>
+<td> =</td>
+                <td> 3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exclob"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXCLOB</strong></td>
+<td> =</td>
+                <td>     8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdbmxalnm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXDBMXALNM</strong></td>
+<td> =</td>
+                <td> 48</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdbmxusnm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXDBMXUSNM</strong></td>
+<td> =</td>
+                <td> 49</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdbvr"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXDBVR</strong></td>
+<td> =</td>
+                <td> 3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdebg"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXDEBG</strong></td>
+<td> =</td>
+                <td> 2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdim"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXDIM</strong></td>
+<td> =</td>
+                <td> 5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exeblk"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXEBLK</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exedbp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXEDBP</strong></td>
+<td> =</td>
+                <td> 32</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exedsp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXEDSP</strong></td>
+<td> =</td>
+                <td> 33</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exelbl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXELBL</strong></td>
+<td> =</td>
+                <td> 8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exelem"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXELEM</strong></td>
+<td> =</td>
+                <td> 7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exelsd"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXELSD</strong></td>
+<td> =</td>
+                <td> 43</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exelsl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXELSL</strong></td>
+<td> =</td>
+                <td> 42</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exelsp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXELSP</strong></td>
+<td> =</td>
+                <td> 44</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exemap"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXEMAP</strong></td>
+<td> =</td>
+                <td> 4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exesdl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXESDL</strong></td>
+<td> =</td>
+                <td> 31</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exesl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXESL</strong></td>
+<td> =</td>
+                <td> 30</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exfabp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXFABP</strong></td>
+<td> =</td>
+                <td> 39</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exfasp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXFASP</strong></td>
+<td> =</td>
+                <td> 40</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exfatl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXFATL</strong></td>
+<td> =</td>
+                <td> -1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exfsdl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXFSDL</strong></td>
+<td> =</td>
+                <td> 38</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exfsl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXFSL</strong></td>
+<td> =</td>
+                <td> 37</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exinfo"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXINFO</strong></td>
+<td> =</td>
+                <td> 15</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exlarg"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXLARG</strong></td>
+<td> =</td>
+                <td>    32</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exlbvr"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXLBVR</strong></td>
+<td> =</td>
+                <td> 22</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exlmsg"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXLMSG</strong></td>
+<td> =</td>
+                <td> -1001</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exmemf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXMEMF</strong></td>
+<td> =</td>
+                <td>  1000</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exmxrdnm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXMXRDNM</strong></td>
+<td> =</td>
+                <td> 50</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exncf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNCF</strong></td>
+<td> =</td>
+                <td> 47</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnebp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEBP</strong></td>
+<td> =</td>
+                <td> 17</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnedb"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEDB</strong></td>
+<td> =</td>
+                <td> 28</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnedg"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEDG</strong></td>
+<td> =</td>
+                <td> 27</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnedm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEDM</strong></td>
+<td> =</td>
+                <td> 45</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exneds"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEDS</strong></td>
+<td> =</td>
+                <td> 29</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnels"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNELS</strong></td>
+<td> =</td>
+                <td> 41</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnem"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEM</strong></td>
+<td> =</td>
+                <td> 25</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnemp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNEMP</strong></td>
+<td> =</td>
+                <td> 23</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnet4"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNET4</strong></td>
+<td> =</td>
+                <td>    64</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnfac"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNFAC</strong></td>
+<td> =</td>
+                <td> 34</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnfam"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNFAM</strong></td>
+<td> =</td>
+                <td> 46</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnfb"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNFB</strong></td>
+<td> =</td>
+                <td> 35</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnfs"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNFS</strong></td>
+<td> =</td>
+                <td> 36</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnmap"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNMAP</strong></td>
+<td> =</td>
+                <td> 5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnnm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNNM</strong></td>
+<td> =</td>
+                <td> 26</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnnmp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNNMP</strong></td>
+<td> =</td>
+                <td> 24</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnnsp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNNSP</strong></td>
+<td> =</td>
+                <td> 18</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnocl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNOCL</strong></td>
+<td> =</td>
+                <td>     4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnode"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNODE</strong></td>
+<td> =</td>
+                <td> 6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnods"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNODS</strong></td>
+<td> =</td>
+                <td> 9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnorm"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNORM</strong></td>
+<td> =</td>
+                <td>    16</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnosh"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNOSH</strong></td>
+<td> =</td>
+                <td>   128</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnsdf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNSDF</strong></td>
+<td> =</td>
+                <td> 20</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnset"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNSET</strong></td>
+<td> =</td>
+                <td> 2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnsnl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNSNL</strong></td>
+<td> =</td>
+                <td> 10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnssp"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNSSP</strong></td>
+<td> =</td>
+                <td> 19</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exnull"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXNULL</strong></td>
+<td> =</td>
+                <td> -1006</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exok"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXOK</strong></td>
+<td> =</td>
+                <td> 0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expmsg"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXPMSG</strong></td>
+<td> =</td>
+                <td> -1000</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exqa"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXQA</strong></td>
+<td> =</td>
+                <td> 14</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exread"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXREAD</strong></td>
+<td> =</td>
+                <td>     2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exshar"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXSHAR</strong></td>
+<td> =</td>
+                <td>   256</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exsids"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXSIDS</strong></td>
+<td> =</td>
+                <td> 11</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exssdf"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXSSDF</strong></td>
+<td> =</td>
+                <td> 21</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exssel"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXSSEL</strong></td>
+<td> =</td>
+                <td> 13</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exsset"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXSSET</strong></td>
+<td> =</td>
+                <td> 3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exssnl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXSSNL</strong></td>
+<td> =</td>
+                <td> 12</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-extims"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXTIMS</strong></td>
+<td> =</td>
+                <td> 16</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-extitl"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXTITL</strong></td>
+<td> =</td>
+                <td> 4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-extype"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXTYPE</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exvers"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXVERS</strong></td>
+<td> =</td>
+                <td> 2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exvrbs"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXVRBS</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exwarn"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXWARN</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exwrit"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXWRIT</strong></td>
+<td> =</td>
+                <td>     1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exwrt"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EXWRT</strong></td>
+<td> =</td>
+                <td>     1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_64bit_data"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_64BIT_DATA</strong></td>
+<td> =</td>
+                <td>4194304</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_64bit_offset"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_64BIT_OFFSET</strong></td>
+<td> =</td>
+                <td>     32</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_all_int64_api"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_ALL_INT64_API</strong></td>
+<td> =</td>
+                <td>  8192+16384+32768</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_all_int64_db"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_ALL_INT64_DB</strong></td>
+<td> =</td>
+                <td>   1024+2048+4096</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_bulk_int64_api"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_BULK_INT64_API</strong></td>
+<td> =</td>
+                <td>  32768</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_bulk_int64_db"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_BULK_INT64_DB</strong></td>
+<td> =</td>
+                <td>   4096</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_clobber"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_CLOBBER</strong></td>
+<td> =</td>
+                <td>      8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_coordinate"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_COORDINATE</strong></td>
+<td> =</td>
+                <td> 15</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_diskless"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_DISKLESS</strong></td>
+<td> =</td>
+                <td>1048576</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_edge_block"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_EDGE_BLOCK</strong></td>
+<td> =</td>
+                <td>  6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_edge_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_EDGE_MAP</strong></td>
+<td> =</td>
+                <td> 11</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_edge_set"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_EDGE_SET</strong></td>
+<td> =</td>
+                <td>  7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_elem_block"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_ELEM_BLOCK</strong></td>
+<td> =</td>
+                <td>  1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_elem_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_ELEM_MAP</strong></td>
+<td> =</td>
+                <td>  4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_elem_set"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_ELEM_SET</strong></td>
+<td> =</td>
+                <td> 10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_face_block"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_FACE_BLOCK</strong></td>
+<td> =</td>
+                <td>  8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_face_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_FACE_MAP</strong></td>
+<td> =</td>
+                <td> 12</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_face_set"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_FACE_SET</strong></td>
+<td> =</td>
+                <td>  9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_global"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_GLOBAL</strong></td>
+<td> =</td>
+                <td> 13</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_ids_int64_api"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_IDS_INT64_API</strong></td>
+<td> =</td>
+                <td>  16384</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_ids_int64_db"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_IDS_INT64_DB</strong></td>
+<td> =</td>
+                <td>   2048</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_api_vers"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_API_VERS</strong></td>
+<td> =</td>
+                <td> 2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_coord_frames"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_COORD_FRAMES</strong></td>
+<td> =</td>
+                <td> 47</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_db_float_size"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_DB_FLOAT_SIZE</strong></td>
+<td> =</td>
+                <td> 51</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_db_max_allowed_name_length"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_DB_MAX_ALLOWED_NAME_LENGTH</strong></td>
+<td> =</td>
+                <td> 48</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_db_max_used_name_length"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_DB_MAX_USED_NAME_LENGTH</strong></td>
+<td> =</td>
+                <td> 49</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_db_vers"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_DB_VERS</strong></td>
+<td> =</td>
+                <td> 3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_dim"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_DIM</strong></td>
+<td> =</td>
+                <td> 5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_eb_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EB_PROP</strong></td>
+<td> =</td>
+                <td> 17</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_edge"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EDGE</strong></td>
+<td> =</td>
+                <td> 27</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_edge_blk"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EDGE_BLK</strong></td>
+<td> =</td>
+                <td> 28</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_edge_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EDGE_MAP</strong></td>
+<td> =</td>
+                <td> 45</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_edge_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EDGE_PROP</strong></td>
+<td> =</td>
+                <td> 32</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_edge_sets"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EDGE_SETS</strong></td>
+<td> =</td>
+                <td> 29</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_elem"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELEM</strong></td>
+<td> =</td>
+                <td> 7</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_elem_blk"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELEM_BLK</strong></td>
+<td> =</td>
+                <td> 8</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_elem_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELEM_MAP</strong></td>
+<td> =</td>
+                <td> 25</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_elem_sets"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELEM_SETS</strong></td>
+<td> =</td>
+                <td> 41</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_els_df_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELS_DF_LEN</strong></td>
+<td> =</td>
+                <td> 43</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_els_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELS_LEN</strong></td>
+<td> =</td>
+                <td> 42</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_els_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ELS_PROP</strong></td>
+<td> =</td>
+                <td> 44</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_em_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_EM_PROP</strong></td>
+<td> =</td>
+                <td> 23</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_es_df_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ES_DF_LEN</strong></td>
+<td> =</td>
+                <td> 31</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_es_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ES_LEN</strong></td>
+<td> =</td>
+                <td> 30</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_es_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_ES_PROP</strong></td>
+<td> =</td>
+                <td> 33</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_face"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FACE</strong></td>
+<td> =</td>
+                <td> 34</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_face_blk"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FACE_BLK</strong></td>
+<td> =</td>
+                <td> 35</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_face_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FACE_MAP</strong></td>
+<td> =</td>
+                <td> 46</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_face_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FACE_PROP</strong></td>
+<td> =</td>
+                <td> 39</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_face_sets"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FACE_SETS</strong></td>
+<td> =</td>
+                <td> 36</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_file_type"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FILE_TYPE</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_fs_df_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FS_DF_LEN</strong></td>
+<td> =</td>
+                <td> 38</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_fs_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FS_LEN</strong></td>
+<td> =</td>
+                <td> 37</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_fs_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FS_PROP</strong></td>
+<td> =</td>
+                <td> 40</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_full_group_name"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FULL_GROUP_NAME</strong></td>
+<td> =</td>
+                <td> 58</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_full_group_name_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_FULL_GROUP_NAME_LEN</strong></td>
+<td> =</td>
+                <td> 57</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_group_name"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_GROUP_NAME</strong></td>
+<td> =</td>
+                <td> 56</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_group_name_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_GROUP_NAME_LEN</strong></td>
+<td> =</td>
+                <td> 55</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_group_parent"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_GROUP_PARENT</strong></td>
+<td> =</td>
+                <td> 53</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_group_root"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_GROUP_ROOT</strong></td>
+<td> =</td>
+                <td> 54</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_info"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_INFO</strong></td>
+<td> =</td>
+                <td> 15</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_invalid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_INVALID</strong></td>
+<td> =</td>
+                <td> -1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_lib_vers"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_LIB_VERS</strong></td>
+<td> =</td>
+                <td> 22</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_max_read_name_length"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_MAX_READ_NAME_LENGTH</strong></td>
+<td> =</td>
+                <td> 50</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_nm_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NM_PROP</strong></td>
+<td> =</td>
+                <td> 24</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_nodes"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NODES</strong></td>
+<td> =</td>
+                <td> 6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_node_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NODE_MAP</strong></td>
+<td> =</td>
+                <td> 26</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_node_sets"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NODE_SETS</strong></td>
+<td> =</td>
+                <td> 9</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ns_df_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NS_DF_LEN</strong></td>
+<td> =</td>
+                <td> 20</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ns_node_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NS_NODE_LEN</strong></td>
+<td> =</td>
+                <td> 10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ns_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NS_PROP</strong></td>
+<td> =</td>
+                <td> 18</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_num_child_groups"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_NUM_CHILD_GROUPS</strong></td>
+<td> =</td>
+                <td> 52</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_qa"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_QA</strong></td>
+<td> =</td>
+                <td> 14</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_side_sets"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_SIDE_SETS</strong></td>
+<td> =</td>
+                <td> 11</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ss_df_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_SS_DF_LEN</strong></td>
+<td> =</td>
+                <td> 21</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ss_elem_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_SS_ELEM_LEN</strong></td>
+<td> =</td>
+                <td> 13</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ss_node_len"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_SS_NODE_LEN</strong></td>
+<td> =</td>
+                <td> 12</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_ss_prop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_SS_PROP</strong></td>
+<td> =</td>
+                <td> 19</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_threadsafe"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_THREADSAFE</strong></td>
+<td> =</td>
+                <td> 59</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_time"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_TIME</strong></td>
+<td> =</td>
+                <td> 16</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_inq_title"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INQ_TITLE</strong></td>
+<td> =</td>
+                <td> 4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_invalid"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_INVALID</strong></td>
+<td> =</td>
+                <td> -1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_large_model"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_LARGE_MODEL</strong></td>
+<td> =</td>
+                <td>     32</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_maps_int64_api"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_MAPS_INT64_API</strong></td>
+<td> =</td>
+                <td>   8192</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_maps_int64_db"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_MAPS_INT64_DB</strong></td>
+<td> =</td>
+                <td>   1024</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_mmap"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_MMAP</strong></td>
+<td> =</td>
+                <td>2097152</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_netcdf4"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NETCDF4</strong></td>
+<td> =</td>
+                <td>     64</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_noclassic"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NOCLASSIC</strong></td>
+<td> =</td>
+                <td>    512</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_noclobber"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NOCLOBBER</strong></td>
+<td> =</td>
+                <td>      4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_nodal"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NODAL</strong></td>
+<td> =</td>
+                <td> 14</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_node_block"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NODE_BLOCK</strong></td>
+<td> =</td>
+                <td> 14</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_node_map"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NODE_MAP</strong></td>
+<td> =</td>
+                <td>  5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_node_set"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NODE_SET</strong></td>
+<td> =</td>
+                <td>  2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_normal_model"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NORMAL_MODEL</strong></td>
+<td> =</td>
+                <td>     16</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_noshare"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_NOSHARE</strong></td>
+<td> =</td>
+                <td>    128</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_opt_compression_level"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_OPT_COMPRESSION_LEVEL</strong></td>
+<td> =</td>
+                <td> 3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_opt_compression_shuffle"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_OPT_COMPRESSION_SHUFFLE</strong></td>
+<td> =</td>
+                <td> 4</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_opt_compression_type"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_OPT_COMPRESSION_TYPE</strong></td>
+<td> =</td>
+                <td> 2</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_opt_integer_size_api"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_OPT_INTEGER_SIZE_API</strong></td>
+<td> =</td>
+                <td> 5</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_opt_integer_size_db"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_OPT_INTEGER_SIZE_DB</strong></td>
+<td> =</td>
+                <td> 6</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_opt_max_name_length"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_OPT_MAX_NAME_LENGTH</strong></td>
+<td> =</td>
+                <td> 1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_read"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_READ</strong></td>
+<td> =</td>
+                <td>      0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_share"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_SHARE</strong></td>
+<td> =</td>
+                <td>    256</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_side_set"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_SIDE_SET</strong></td>
+<td> =</td>
+                <td>  3</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ex_write"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>EX_WRITE</strong></td>
+<td> =</td>
+                <td>      1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ki"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>Ki</strong></td>
+<td> =</td>
+                <td>kind(PInt)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kr"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>Kr</strong></td>
+<td> =</td>
+                <td>selected_real_kind(precision(PReal))</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90infinity"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90INFINITY</strong></td>
+<td> =</td>
+                <td>huge(1.0_kr)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90mxstrlen"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90MXSTRLEN</strong></td>
+<td> =</td>
+                <td>256</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90ninfinity"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>MEF90NINFINITY</strong></td>
+<td> =</td>
+                <td>-huge(1.0_kr)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mxlnln"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>MXLNLN</strong></td>
+<td> =</td>
+                <td> 80</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mxname"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>MXNAME</strong></td>
+<td> =</td>
+                <td> 256</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mxstln"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              parameter
+            </td>
+            <td>::</td>
+            <td><strong>MXSTLN</strong></td>
+<td> =</td>
+                <td> 32</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pflop"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PFlop</strong></td>
+<td> =</td>
+                <td>selected_real_kind(precision(flop))</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pint"></span>
+              integer(kind=C_INT32_T),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PInt</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-preal"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>PReal</strong></td>
+<td> =</td>
+                <td>1.0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-flop"></span>
+              real(kind=C_DOUBLE),
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>flop</strong></td>
+<td> =</td>
+                <td>1.0</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              mef90 / vDef
+ was developed by Blaise Bourdin<br>              &copy; 2026 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

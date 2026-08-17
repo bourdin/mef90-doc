@@ -1,0 +1,2911 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran + PETSc reference implementation of the variational approach to fracture">
+    <meta name="author" content="Blaise Bourdin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>All Procedures &ndash; mef90 / vDef
+</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+      <script src="../js/MathJax-config/mathjax-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">mef90 / vDef </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id='text'>
+			 <h1>Procedures</h1>
+			 <table class="table table-striped">
+			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
+			 <tbody>
+			   <tr>
+                 <td><a href='../proc/aat1.html'>aAT1</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Function</td>
+                 <td><p>aAT1: the "a" function of the standard AT1 model, i.e. $a(\alpha) = \eta + (1-\eta)(1-\alpha)^2$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/aat1exp.html'>aAT1exp</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Function</td>
+                 <td><p>aAT1exp: the "a" function of the standard AT1exp model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/aat2.html'>aAT2</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Function</td>
+                 <td><p>aAT2: the "a" function of the standard AT2 model, i.e. $a(\alpha) = \eta + (1-\eta)(1-\alpha)^2$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/akkl.html'>aKKL</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Function</td>
+                 <td><p>aKKL: the "a" function of the KKL (v2) model,</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/alinsoft.html'>aLinSoft</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>aLinSoft: the "a" function of the LinSoft model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/area_tri_2d.html'>Area_Tri_2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/array42tens4os2d.html'>Array42Tens4OS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/array42tens4os3d.html'>Array42Tens4OS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/arraygetmat2d.html'>ArrayGetMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/arraygetmat3d.html'>ArrayGetMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/arraygetmats2d.html'>ArrayGetMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/arraygetmats3d.html'>ArrayGetMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/arraytotens4os2d.html'>ArrayToTens4OS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/arraytotens4os3d.html'>ArrayToTens4OS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/assignment(=).html'>assignment(=)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/contp2d.html'>ContP2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/contp2ds.html'>ContP2DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/contp3d.html'>ContP3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/contp3ds.html'>ContP3DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/createcglobaltolocalsf_private.html'>CreateCGlobalToLocalSF_Private</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CreateCGlobalToLocalSF_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/createlocaltocglobalsf_private.html'>CreateLocalToCGlobalSF_Private</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CreateLocalToCGlobalSF_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/createnaturaltoiosf_private.html'>CreateNaturalToIOSF_Private</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CreateNaturalToIOSF_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/createsidesf_private.html'>CreateSideSF_Private</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>CreateSideSF_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/crossp3d.html'>CrossP3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2aat1.html'>D2aAT1</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Function</td>
+                 <td><p>D2aAT1: the second derivative of the "a" function of the standard AT1 model, i.e. $a''(\alpha) = 2(1-\eta)$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2aat1exp.html'>D2aAT1exp</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Function</td>
+                 <td><p>D2aAT1exp: the second derivative of the "a" function of the standard AT1exp model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2aat2.html'>D2aAT2</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Function</td>
+                 <td><p>D2aAT2: the second derivative of the "a" function of the standard AT2 model, i.e. $a''(\alpha) = 2 ( 1-\eta)$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2akkl.html'>D2aKKL</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Function</td>
+                 <td><p>D2aKKL: the second derivative of the "a" function of the KKL (v2) model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2alinsoft.html'>D2aLinSoft</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>D2aLinSoft: the second derivative of the "a" function of the LinSoft model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2eeddeviatoric.html'>D2EEDDeviatoric</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitdeviatoric.html'>m_MEF90_DefMechSplitDeviatoric</a></td>
+                 <td>Subroutine</td>
+                 <td><p>D2EEDDeviatoric: Compute the second derivative of the positive and negative part of the elastic energy density (positive and negative stress)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2eedhd.html'>D2EEDHD</a></td>
+                 <td><a href='../module/m_mef90_defmechsplithd.html'>m_MEF90_DefMechSplitHD</a></td>
+                 <td>Subroutine</td>
+                 <td><p>D2EEDHD: Compute the second derivative of the positive and negative part of the elastic energy density (positive and negative stress)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2eednone.html'>D2EEDNone</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitnone.html'>m_MEF90_DefMechSplitNone</a></td>
+                 <td>Subroutine</td>
+                 <td><p>D2EEDNone: Compute the second derivative of the positive and negative part of the elastic energy density (positive and negative stress)
+             evaluated at the strain tensor Strain.
+             without a split, D2EEDPlus = HookesLaw, D2EEDMinus = 0</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2wat1.html'>D2wAT1</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Function</td>
+                 <td><p>D2wAT1: the second derivative of the "w" function of the standard AT1 model, i.e. $w''(\alpha) = 0$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2wat1exp.html'>D2wAT1exp</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Function</td>
+                 <td><p>D2wAT1exp: the second derivative of the "w" function of the standard AT1exp model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2wat2.html'>D2wAT2</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Function</td>
+                 <td><p>D2wAT2: the second derivative of the "w" function of the standard AT2 model, i.e. $w''(\alpha) = 2$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2wkkl.html'>D2wKKL</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Function</td>
+                 <td><p>D2wKKL: the second derivative of the "w" function of the KKL (v2) model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/d2wlinsoft.html'>D2wLinSoft</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>D2wLinSoft: the second derivative of the "w" function of the LinSoft model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/daat1.html'>DaAT1</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Function</td>
+                 <td><p>DaAT1: the derivative of the "a" function of the standard AT1 model, i.e. $a'(\alpha) = -2(1-\eta)(1-\alpha)$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/daat1exp.html'>DaAT1exp</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Function</td>
+                 <td><p>DaAT1exp: the derivative of the "a" function of the standard AT1exp model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/daat2.html'>DaAT2</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Function</td>
+                 <td><p>DaAT2: the derivative of the "a" function of the standard AT2 model, i.e. $a'(\alpha) = -2(1-\eta)(1-\alpha)$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dakkl.html'>DaKKL</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Function</td>
+                 <td><p>DaKKL: the derivative of the "a" function of the KKL (v2) model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dalinsoft.html'>DaLinSoft</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>DaLinSoft: the derivative of the "a" function of the LinSoft model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblexmat2d.html'>DbleXMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblexmat3d.html'>DbleXMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblexmats2d.html'>DbleXMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblexmats3d.html'>DbleXMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblextens4os2d.html'>DbleXTens4OS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblextens4os3d.html'>DbleXTens4OS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblexvect2d.html'>DbleXVect2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dblexvect3d.html'>DbleXVect3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deeddeviatoric.html'>DEEDDeviatoric</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitdeviatoric.html'>m_MEF90_DefMechSplitDeviatoric</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DEEDDeviatoric: Compute the directional derivative of the positive and negative part of the elastic energy density in the direction phi at the point defined by the strain tensor</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deedhd.html'>DEEDHD</a></td>
+                 <td><a href='../module/m_mef90_defmechsplithd.html'>m_MEF90_DefMechSplitHD</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DEEDHD: Compute the directional derivative of the positive and negative part of the elastic energy density in the direction phi at the point defined by the strain tensor</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deednone.html'>DEEDNone</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitnone.html'>m_MEF90_DefMechSplitNone</a></td>
+                 <td>Subroutine</td>
+                 <td><p>DEEDNone: Compute the derivative of the positive and negative part of the elastic energy density (positive and negative stress)
+             evaluated at the strain tensor Strain.
+         without a split, we have DEEDPlus  = HookesLaw Strain
+                                  DEEDMinus = 0</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/det.html'>Det</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/detmat2d.html'>DetMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/detmat3d.html'>DetMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/detmats2d.html'>DetMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/detmats3d.html'>DetMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/deviatoricpart.html'>DeviatoricPart</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deviatoricpart2d.html'>DeviatoricPart2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deviatoricpart2ds.html'>DeviatoricPart2DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deviatoricpart3d.html'>DeviatoricPart3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/deviatoricpart3ds.html'>DeviatoricPart3DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/diagonalize.html'>Diagonalize</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/difmat2d.html'>DifMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/difmat3d.html'>DifMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/difmats2d.html'>DifMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/difmats3d.html'>DifMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/diftens4os2d.html'>DifTens4OS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/diftens4os3d.html'>DifTens4OS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/difvect2d.html'>DifVect2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/difvect3d.html'>DifVect3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dotp2d.html'>DotP2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dotp3d.html'>DotP3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dwat1.html'>DwAT1</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Function</td>
+                 <td><p>DwAT1: the derivative of the "w" function of the standard AT1 model, i.e. $w'(\alpha) = 1$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dwat1exp.html'>DwAT1exp</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Function</td>
+                 <td><p>DwAT1exp: the derivative of the "w" function of the standard AT1exp model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dwat2.html'>DwAT2</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Function</td>
+                 <td><p>DwAT2: the derivative of the "w" function of the standard AT2 model, i.e. $w'(\alpha) = 2\alpha$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dwkkl.html'>DwKKL</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Function</td>
+                 <td><p>DwKKL: the derivative of the "w" function of the KKL (v2) model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/dwlinsoft.html'>DwLinSoft</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>DwLinSoft: the derivative of the "w" function of the LinSoft model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/eeddeviatoric.html'>EEDDeviatoric</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitdeviatoric.html'>m_MEF90_DefMechSplitDeviatoric</a></td>
+                 <td>Subroutine</td>
+                 <td><p>EEDDeviatoric: Compute the positive and negative part of the elastic energy density associated with a strain tensor
+         EEDMinus = SmoothPositiveSquare(-trace(e)) AI.I/2/N^2
+         EEDPlus  = Ae.e/2 - EEDMinus
+with N = 3 for 3D and N = 2 for 2D, where e is the strain tensor, A is the Hookes law tensor</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/eedhd.html'>EEDHD</a></td>
+                 <td><a href='../module/m_mef90_defmechsplithd.html'>m_MEF90_DefMechSplitHD</a></td>
+                 <td>Subroutine</td>
+                 <td><p>EEDHD: Compute the positive and negative part of the elastic energy density associated with a strain tensor
+         EEDMinus = SmoothPositiveSquare(-trace(e)) AI.I/2/N^2
+         EEDPlus  = Ae.e/2 - EEDMinus
+with N = 3 for 3D and N = 2 for 2D, where e is the strain tensor, A is the Hookes law tensor</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/eednone.html'>EEDNone</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitnone.html'>m_MEF90_DefMechSplitNone</a></td>
+                 <td>Subroutine</td>
+                 <td><p>EEDNone: Compute the positive and negative part of the elastic energy density associated with a strain tensor
+         without a split, we have EEDPlus  = 1/2 HookesLaw Strain \cdot Strain
+                                  EEDMinus = 0</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element2dscaldestroy.html'>Element2DScalDestroy</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element2dscaldestroyset.html'>Element2DScalDestroySet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element2dscalinitset.html'>Element2DScalInitSet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td><p>Element2DScalInitSet:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element2dvectdestroy.html'>Element2DVectDestroy</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element2dvectdestroyset.html'>Element2DVectDestroySet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element2dvectinitset.html'>Element2DVectInitSet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element3dscaldestroy.html'>Element3DScalDestroy</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element3dscaldestroyset.html'>Element3DScalDestroySet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element3dscalinitset.html'>Element3DScalInitSet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element3dvectdestroy.html'>Element3DVectDestroy</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element3dvectdestroyset.html'>Element3DVectDestroySet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/element3dvectinitset.html'>Element3DVectInitSet</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange2dboundaryscalinit.html'>ElementPLagrange2DBoundaryScalInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange2dboundaryvectinit.html'>ElementPLagrange2DBoundaryVectInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange2dscalinit.html'>ElementPLagrange2DScalInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange2dvectinit.html'>ElementPLagrange2DVectInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange3dboundaryscalinit.html'>ElementPLagrange3DBoundaryScalInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange3dboundaryvectinit.html'>ElementPLagrange3DBoundaryVectInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange3dscalinit.html'>ElementPLagrange3DScalInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/elementplagrange3dvectinit.html'>ElementPLagrange3DVectInit</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_capmodel.html'>FHG_CAPMODEL</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticitycap3d.html'>m_MEF90_DefMechPlasticityCap3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: Capmodel</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_druckerpragercapmodel.html'>FHG_DRUCKERPRAGERCAPMODEL</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticitydruckerpragercap3d.html'>m_MEF90_DefMechPlasticityDruckerPragerCap3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: VonMises</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_none.html'>FHG_NONE</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticitynone3d.html'>m_MEF90_DefMechPlasticityNone3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: VonMises</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_tresca.html'>FHG_TRESCA</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticitytresca3d.html'>m_MEF90_DefMechPlasticityTresca3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: Tresca</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_vonmises.html'>FHG_VONMISES</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticityvonmises3d.html'>m_MEF90_DefMechPlasticityVonMises3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: VonMises</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_vonmises1d.html'>FHG_VONMISES1D</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticityvonmises3d.html'>m_MEF90_DefMechPlasticityVonMises3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: VonMises</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/fhg_vonmisesplanetheory.html'>FHG_VONMISESPLANETHEORY</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticityvonmises3d.html'>m_MEF90_DefMechPlasticityVonMises3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>fhg: VonMises</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/ht_min_tri_2d.html'>Ht_Min_Tri_2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/hydrostaticpart.html'>HydrostaticPart</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/hydrostaticpart2d.html'>HydrostaticPart2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/hydrostaticpart2ds.html'>HydrostaticPart2DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/hydrostaticpart3d.html'>HydrostaticPart3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/hydrostaticpart3ds.html'>HydrostaticPart3DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/invert.html'>Invert</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/invertmat2d.html'>InvertMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/invertmat3d.html'>InvertMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/invertmats2d.html'>InvertMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/invertmats3d.html'>InvertMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/inverttens4os2d.html'>InvertTens4OS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/inverttens4os3d.html'>InvertTens4OS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2d_get_real.html'>Mat2D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2ddotmats2d.html'>Mat2DDotMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Mat2DDotMatS2D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2deq.html'>Mat2DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dgetarray.html'>Mat2DGetArray</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dmoment.html'>Mat2DMoment</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Mat2DMoment: k-th moment of a 2x2 matrix, i.e tr(A^k)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dnorm.html'>Mat2DNorm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dquot.html'>Mat2DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dtomats2d.html'>Mat2DToMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dxdble.html'>Mat2DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dxmat2d.html'>Mat2DXMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat2dxmats2d.html'>Mat2DXMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3d_get_real.html'>Mat3D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3ddotmats3d.html'>Mat3DDotMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Mat3DDotMatS3D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3deq.html'>Mat3DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dgetarray.html'>Mat3DGetArray</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dmoment.html'>Mat3DMoment</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Mat3DMoment: k-th moment of a 3x3 matrix, i.e tr(A^k)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dnorm.html'>Mat3DNorm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dquot.html'>Mat3DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dtomats3d.html'>Mat3DToMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dxdble.html'>Mat3DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dxmat3d.html'>Mat3DXMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat3dxmats3d.html'>Mat3DXMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2d_get_real.html'>MatS2D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2d_get_vectr.html'>MatS2D_Get_VectR</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2ddotmat2d.html'>MatS2DDotMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>MatS2DDotMat2D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2deigenvectorvalues.html'>MatS2DEigenVectorValues</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2deq.html'>MatS2DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dgetarray.html'>MatS2DGetArray</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dmoment.html'>MatS2DMoment</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>MatS2DMoment: k-th moment of a 2x2 symmetric matrix, i.e tr(A^k)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dnorm.html'>MatS2DNorm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dquot.html'>MatS2DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dspectraldecomposition.html'>MatS2DSpectralDecomposition</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dtomat2d.html'>MatS2DToMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dxdble.html'>MatS2DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats2dxmats2d.html'>MatS2DXMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3d_get_real.html'>MatS3D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3d_get_vectr.html'>MatS3D_Get_VectR</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3ddotmat3d.html'>MatS3DDotMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>MatS3DDotMat3D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3deigenvectorvalues.html'>MatS3DEigenVectorValues</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3deq.html'>MatS3DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dgetarray.html'>MatS3DGetArray</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dmoment.html'>MatS3DMoment</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>MatS3DMoment: k-th moment of a 3x3 symmetric matrix, i.e tr(A^k)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dnorm.html'>MatS3DNorm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dquot.html'>MatS3DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dspectraldecomposition.html'>MatS3DSpectralDecomposition</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dtomat3d.html'>MatS3DToMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dxdble.html'>MatS3DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mats3dxmats3d.html'>MatS3DXMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/matxvect2d.html'>MatXVect2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/matxvect2ds.html'>MatXVect2DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/matxvect3d.html'>MatXVect3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/matxvect3ds.html'>MatXVect3DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90_massmatrixassembleset.html'>MEF90_MassMatrixAssembleSet</a></td>
+                 <td><a href='../module/m_mef90_massmatriximplementation_mef90element3dvect.html'>m_MEF90_MassMatrixImplementation_MEF90Element3DVect</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90_MassMatrixAssembleSet: Assemble the contribution of a cell / face / edge set to
+                             the mass matrix associated with the element type elemType</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90cellsectioncreate.html'>MEF90CellSectionCreate</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CellSectionCreate: create a section with numComponent dof at cells</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90constraintsfcreate.html'>MEF90ConstraintSFCreate</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90ConstraintSFCreate: sf mapping between local and constraint type(tVec) ordering and distribution</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90createboundarycellvector.html'>MEF90CreateBoundaryCellVector</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CreateBoundaryCellVector: create a type(tVec) for a cell-based vector</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90createboundarylocalvector.html'>MEF90CreateBoundaryLocalVector</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CreateBoundaryLocalVector: create a type(tVec) associated with a FE space over the boundary of a domain (face sets)
+                                and constraints
+    face   set BC are obtained from the command line option -fs<set ID><em><name>BC [bool], [bool], ...
+    vertex set BC are obtained from the command line option -vs<set ID></em><name>BC [bool], [bool], ...</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90createcellvector.html'>MEF90CreateCellVector</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CreateCellVector: create a type(tVec) for a cell-based vector</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90createlocalvector.html'>MEF90CreateLocalVector</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CreateLocalVector: create a type(tVec) associated with a FE space and constraints
+    cell   set BC are obtained from the command line option -cs<set ID><em><name>BC [bool], [bool], ...
+    face   set BC are obtained from the command line option -fs<set ID></em><name>BC [bool], [bool], ...
+    vertex set BC are obtained from the command line option -vs<set ID>_<name>BC [bool], [bool], ...</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxcloseexo.html'>MEF90CtxCloseEXO</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxCloseEXO:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxcreate.html'>MEF90CtxCreate</a></td>
+                 <td><a href='../module/m_mef90_ctx.html'>m_MEF90_Ctx</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxCreate:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxdestroy.html'>MEF90CtxDestroy</a></td>
+                 <td><a href='../module/m_mef90_ctx.html'>m_MEF90_Ctx</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxDestroy:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxgettime.html'>MEF90CtxGetTime</a></td>
+                 <td><a href='../module/m_mef90_ctx.html'>m_MEF90_Ctx</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxGetTime:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxglobaloptionssetfromoptions.html'>MEF90CtxGlobalOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_ctx.html'>m_MEF90_Ctx</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxGlobalOptionsSetFromOptions: reads the MEF90-wide options.
+    options is intent(inout): whatever it holds on entry is used as the default, so that a
+    caller can override the defaults carried by MEF90CtxGlobalOptions_Type before calling.</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxopenexo.html'>MEF90CtxOpenEXO</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxOpenEXO:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxsetfromoptions.html'>MEF90CtxSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_ctx.html'>m_MEF90_Ctx</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxSetFromOptions: initializes a MEF90Ctx_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90ctxview.html'>MEF90CtxView</a></td>
+                 <td><a href='../module/m_mef90_ctx.html'>m_MEF90_Ctx</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90CtxView: the default viewer for a MEF90Ctx_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechat1_setfromoptions.html'>MEF90DefMechAT1_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechAT1_setFromOptions: initializes a MEF90_DefMechAT1_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechat1exp_setfromoptions.html'>MEF90DefMechAT1exp_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechAT1exp_setFromOptions: initializes a MEF90_DefMechAT1exp_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechat1exp_view.html'>MEF90DefMechAT1exp_View</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechAT1exp_view: the default viewer for a MEF90_DefMechAT_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechat2_setfromoptions.html'>MEF90DefMechAT2_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechAT2_setFromOptions: initializes a MEF90_DefMechAT2_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechat_setfromoptions.html'>MEF90DefMechAT_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmechat_class.html'>m_MEF90_DefMechAT_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechAT_setFromOptions: initializes a MEF90_DefMechAT_Type from options
+                               subclasses may implement their own setFromOptions if they have additional
+                               parameters, but it is expected that these will call MEF90DefMechAT_setFromOptions</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechat_view.html'>MEF90DefMechAT_View</a></td>
+                 <td><a href='../module/m_mef90_defmechat_class.html'>m_MEF90_DefMechAT_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechAT_view: the default viewer for a MEF90_DefMechAT_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechatkkl_setfromoptions.html'>MEF90DefMechATKKL_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechATKKL_setFromOptions: initializes a MEF90_DefMechATKKL_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechatlinsoft_constructor.html'>MEF90DefMechATLinSoft_Constructor</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90DefMechATLinSoft_Constructor: the default constructor for a MEF90_DefMechATLinSoft_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/mef90defmechatlinsoft_type.html'>MEF90DefMechATLinSoft_Type</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechbilinearformdamage.html'>MEF90DefMechBilinearFormDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechBilinearFormDamage: wraps calls to MEF90DefMechBilinearFormDamage from m_MEF90_DefMechAssembly
+                          since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechbilinearformdamage~2.html'>MEF90DefMechBilinearFormDamage</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechBilinearFormDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechbilinearformdisplacement.html'>MEF90DefMechBilinearFormDisplacement</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechBilinearFormDisplacement: wraps calls to MEF90DefMechBilinearFormDisplacement from m_MEF90_DefMechAssembly
+                          since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechbilinearformdisplacement~2.html'>MEF90DefMechBilinearFormDisplacement</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechBilinearFormDisplacement:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcellsetoptionssetfromoptions.html'>MEF90DefMechCellSetOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCellSetOptionsSetFromOptions: reads the options of a single cell set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcellsetoptionsview.html'>MEF90DefMechCellSetOptionsView</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCellSetOptionsView: the default viewer for a MEF90DefMechCellSetOptions_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcohesiveenergy.html'>MEF90DefMechCohesiveEnergy</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcohesiveenergy~2.html'>MEF90DefMechCohesiveEnergy</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCohesiveEnergy:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcomputecompositedamage.html'>MEF90DefMechComputeCompositeDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechComputeCompositeDamage: Reconstruct a global damage field by taking the min of all set damage fields
+                                    Use in multi-phase field for I/O, error on altmin etc</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcrackvolume.html'>MEF90DefMechCrackVolume</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCrackVolume:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcrackvolume~2.html'>MEF90DefMechCrackVolume</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCrackVolume:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcreate.html'>MEF90DefMechCreate</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCreate: allocates all the fields of a MEF90DefMech_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcreatesnesdamage.html'>MEF90DefMechCreateSNESDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCreateSNESDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcreatesnesdisplacement.html'>MEF90DefMechCreateSNESDisplacement</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCreateSNESDisplacement:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechcreatetaodamage.html'>MEF90DefMechCreateTAODamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechCreateTAODamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechdestroy.html'>MEF90DefMechDestroy</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechDestroy: destroys a MEF90DefMech_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechelasticenergy.html'>MEF90DefMechElasticEnergy</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechelasticenergy~2.html'>MEF90DefMechElasticEnergy</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechElasticEnergy:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechfacesetoptionssetfromoptions.html'>MEF90DefMechFaceSetOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechFaceSetOptionsSetFromOptions: reads the options of a single face set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechfacesetoptionsview.html'>MEF90DefMechFaceSetOptionsView</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechFaceSetOptionsView: the default viewer for a MEF90DefMechFaceSetOptions_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechformatexo.html'>MEF90DefMechFormatEXO</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechFormatEXO:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechgetatmodel.html'>MEF90DefMechGetATModel</a></td>
+                 <td><a href='../module/m_mef90_defmechat.html'>m_MEF90_DefMechAT</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechGetATModel: Return the AT model object from the cell set options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechgetsplit.html'>MEF90DefMechGetSplit</a></td>
+                 <td><a href='../module/m_mef90_defmechsplit.html'>m_MEF90_DefMechSplit</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechGetSplit: Return the split object from the cell set options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechglobaloptionssetfromoptions.html'>MEF90DefMechGlobalOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechGlobalOptionsSetFromOptions: reads the problem-wide options of a MEF90DefMech_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechglobaloptionsview.html'>MEF90DefMechGlobalOptionsView</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechGlobalOptionsView: the default viewer for a MEF90DefMechGlobalOptions_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechoperatordamage.html'>MEF90DefMechOperatorDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechOperatorDamage: wraps calls to MEF90DefMechOperatorDamage from m_MEF90_DefMechAssembly
+                      since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechoperatordamage~2.html'>MEF90DefMechOperatorDamage</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechOperatorDamage: Build the operator. When called in type(tSNES), the solution time should always match the target time,
+                                  so there is no need for interpolation of the forces, external, and boundary values</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechoperatordisplacement.html'>MEF90DefMechOperatorDisplacement</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechOperatorDisplacement: wraps calls to MEF90DefMechOperatorDisplacement from m_MEF90_DefMechAssembly
+                      since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechoperatordisplacement~2.html'>MEF90DefMechOperatorDisplacement</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechOperatorDisplacement: Build the operator. When called in type(tSNES), the solution time should always match the target time,
+                                  so there is no need for interpolation of the forces, external, and boundary values</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechplasticdissipation.html'>MEF90DefMechPlasticDissipation</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechplasticdissipation~2.html'>MEF90DefMechPlasticDissipation</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechPlasticDissipation:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechplasticstrainupdate.html'>MEF90DefMechPlasticStrainUpdate</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechPlasticStrainUpdate: wraps calls to MEF90DefMechPlasticStrainUpdate from m_MEF90_DefMechPlasticity
+                      since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechplasticstrainupdate~2.html'>MEF90DefMechPlasticStrainUpdate</a></td>
+                 <td><a href='../module/m_mef90_defmechplasticity3d.html'>m_MEF90_DefMechPlasticity3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechPlasticStrainUpdate:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechprojectcoordinates_private.html'>MEF90DefMechProjectCoordinates_Private</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsetfromoptions.html'>MEF90DefMechSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechSetFromOptions: initializes a MEF90DefMech_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsettransients.html'>MEF90DefMechSetTransients</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechSetTransients:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsplit_d2smoothpositivesquare.html'>MEF90DefMechSplit_D2SmoothPositiveSquare</a></td>
+                 <td><a href='../module/m_mef90_defmechsplit_class.html'>m_MEF90_DefMechSplit_class</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90DefMechSplit_D2SmoothPositiveSquare: the second derivative of MEF90_DefMechSplitHD_PenaltyFunction</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsplit_dsmoothpositivesquare.html'>MEF90DefMechSplit_DSmoothPositiveSquare</a></td>
+                 <td><a href='../module/m_mef90_defmechsplit_class.html'>m_MEF90_DefMechSplit_class</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90DefMechSplit_DSmoothPositiveSquare: the first derivative of MEF90_DefMechSplitHD_PenaltyFunction</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsplit_smoothpositivesquare.html'>MEF90DefMechSplit_SmoothPositiveSquare</a></td>
+                 <td><a href='../module/m_mef90_defmechsplit_class.html'>m_MEF90_DefMechSplit_class</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90DefMechSplit_SmoothPositiveSquare: a low order polynomial C^2 regularization of (max(x,0))**2, defined by
+     0                         if x \le -gamma/2
+     (x+\gamma/2)^3/3/\gamma   if -\gamma/2 &lt; x \le \gamma/2
+     x^2+gamma^2/12            otherwise</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsplitnone_setfromoptions.html'>MEF90DefMechSplitNone_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitnone.html'>m_MEF90_DefMechSplitNone</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechSplitNone_setFromOptions: the default constructor for a MEF90DefMechSplitNone</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsplitnone_view.html'>MEF90DefMechSplitNone_view</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitnone.html'>m_MEF90_DefMechSplitNone</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechSplitNone_view: view a MEF90DefMechSplitNone</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechstress.html'>MEF90DefMechStress</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechstress~2.html'>MEF90DefMechStress</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechStress:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsurfaceenergy.html'>MEF90DefMechSurfaceEnergy</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechsurfaceenergy~2.html'>MEF90DefMechSurfaceEnergy</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechSurfaceEnergy:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaogradientdamage.html'>MEF90DefMechTAOGradientDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOGradientDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaogradientdamage~2.html'>MEF90DefMechTAOGradientDamage</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOGradientDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaohessiandamage.html'>MEF90DefMechTAOHessianDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOHessianDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaohessiandamage~2.html'>MEF90DefMechTAOHessianDamage</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOHessianDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaoobjectivedamage.html'>MEF90DefMechTAOObjectiveDamage</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOObjectiveDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaoobjectivedamage~2.html'>MEF90DefMechTAOObjectiveDamage</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOObjectiveDamage:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechtaoupdatedamagebounds.html'>MEF90DefMechTAOUpdateDamageBounds</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechTAOUpdateDamageBounds:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechupdatedamagebounds.html'>MEF90DefMechUpdateDamageBounds</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechUpdateDamageBounds:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechvertexsetoptionssetfromoptions.html'>MEF90DefMechVertexSetOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechVertexSetOptionsSetFromOptions: reads the options of a single vertex set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechvertexsetoptionsview.html'>MEF90DefMechVertexSetOptionsView</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechVertexSetOptionsView: the default viewer for a MEF90DefMechVertexSetOptions_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechview.html'>MEF90DefMechView</a></td>
+                 <td><a href='../module/m_mef90_defmech_class.html'>m_MEF90_DefMech_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechView: the default viewer for a MEF90DefMech_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechviewexo.html'>MEF90DefMechViewEXO</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechViewEXO: Save all fields in a MEF90DefMech_Type in an exodus file</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechwork.html'>MEF90DefMechWork</a></td>
+                 <td><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90defmechwork~2.html'>MEF90DefMechWork</a></td>
+                 <td><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DefMechWork:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90dmgetnumsets.html'>MEF90DMGetNumSets</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90DMGetNumSets: the total number of sets of a given label, over the whole communicator of dm
+                   and not only the ones with a point on the local rank</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/mef90elementcreate.html'>MEF90ElementCreate</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/mef90elementdestroy.html'>MEF90ElementDestroy</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90elementgettype.html'>MEF90ElementGetType</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90ElementGetType: Return an element given a family and order</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90elementgettypeboundary.html'>MEF90ElementGetTypeBoundary</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90ElementGetTypeBoundary: Return an element given a family and order</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90elementsinitialize_private.html'>MEF90ElementsInitialize_Private</a></td>
+                 <td><a href='../module/m_mef90_elements.html'>m_MEF90_Elements</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90ElementsInitialize_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exodmview.html'>MEF90EXODMView</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90EXODMView:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exoformat.html'>MEF90EXOFormat</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90EXOFormat:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecload.html'>MEF90EXOVecLoad</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90EXOVecLoad:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecloadnodal_private.html'>MEF90EXOVecLoadNodal_Private</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecloadside_private.html'>MEF90EXOVecLoadSide_Private</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecloadzonal_private.html'>MEF90EXOVecLoadZonal_Private</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecview.html'>MEF90EXOVecView</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90EXOVecView:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecviewnodal_private.html'>MEF90EXOVecViewNodal_Private</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecviewside_private.html'>MEF90EXOVecViewSide_Private</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90exovecviewzonal_private.html'>MEF90EXOVecViewZonal_Private</a></td>
+                 <td><a href='../module/m_mef90_exo.html'>m_MEF90_EXO</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90facesetiosfcreate.html'>MEF90FaceSetIOSFCreate</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90FaceSetIOSFCreate: sf mapping between local and IO ordering and distribution for
+                         type(tVec) defined on Face Sets</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90fileextension.html'>MEF90FileExtension</a></td>
+                 <td><a href='../module/m_mef90_utils.html'>m_MEF90_Utils</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90fileprefix.html'>MEF90FilePrefix</a></td>
+                 <td><a href='../module/m_mef90_utils.html'>m_MEF90_Utils</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90finalize.html'>MEF90Finalize</a></td>
+                 <td><a href='../module/m_mef90.html'>m_MEF90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90Finalize:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90gethookeslaw.html'>MEF90GetHookesLaw</a></td>
+                 <td><a href='../module/m_mef90_hookeslaw.html'>m_MEF90_HookesLaw</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90GetHookesLaw: Returns a MEF90HookesLaw from set options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90h1dotproductset.html'>MEF90H1DotProductSet</a></td>
+                 <td><a href='../module/m_mef90_normsimplementation_mef90element3dvect.html'>m_MEF90_NormsImplementation_MEF90Element3DVect</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90H1DotProductSet: Assemble and add the contribution one processor to the H1 dot products of type(tVec) U and V
+                 on a cell / face / edge set, interpolated with element type elemType</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90h1symdotproductset.html'>MEF90H1SymDotProductSet</a></td>
+                 <td><a href='../module/m_mef90_normsimplementation_mef90element3dvect.html'>m_MEF90_NormsImplementation_MEF90Element3DVect</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90H1SymDotProductSet: Assemble and add the contribution one processor to the H1-sym dot products of type(tVec) U and V
+                 on a cell / face / edge set, interpolated with element type elemType</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferbilinearform.html'>MEF90HeatXferBilinearForm</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferBilinearForm: wraps calls to MEF90HeatXferBilinearForm from m_MEF90_HeatXferAssembly
+                           since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferbilinearform~2.html'>MEF90HeatXferBilinearForm</a></td>
+                 <td><a href='../module/m_mef90_heatxferassembly3d.html'>m_MEF90_HeatXferAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferBilinearForm:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfercellsetoptionssetfromoptions.html'>MEF90HeatXferCellSetOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferCellSetOptionsSetFromOptions: reads the options of a single cell set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfercreate.html'>MEF90HeatXferCreate</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferCreate: allocates all the fields of a MEF90HeatXfer_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfercreatesnes.html'>MEF90HeatXferCreateSNES</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferCreateSNES:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfercreatets.html'>MEF90HeatXferCreateTS</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferCreateTS:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferdestroy.html'>MEF90HeatXferDestroy</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferDestroy: destroys a MEF90HeatXfer_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferenergy.html'>MEF90HeatXFerEnergy</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXFerEnergy: wraps calls to MEF90HeatXferEnergy from m_MEF90_HeatXferAssembly
+                     since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferenergy~2.html'>MEF90HeatXFerEnergy</a></td>
+                 <td><a href='../module/m_mef90_heatxferassembly3d.html'>m_MEF90_HeatXferAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXFerEnergy:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferfacesetoptionssetfromoptions.html'>MEF90HeatXferFaceSetOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferFaceSetOptionsSetFromOptions: reads the options of a single face set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferglobaloptionssetfromoptions_private.html'>MEF90HeatXferGlobalOptionsSetFromOptions_Private</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferGlobalOptionsSetFromOptions_Private: reads the problem-wide options of a MEF90HeatXfer_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferifunction.html'>MEF90HeatXFerIFunction</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXFerIFunction: wraps calls to MEF90HeatXFerIFunction from m_MEF90_HeatXferAssembly
+                       since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferifunction~2.html'>MEF90HeatXFerIFunction</a></td>
+                 <td><a href='../module/m_mef90_heatxferassembly3d.html'>m_MEF90_HeatXferAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXFerIFunction:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferijacobian.html'>MEF90HeatXferIJacobian</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferIJacobian: wraps calls to MEF90HeatXferIJacobian from m_MEF90_HeatXferAssembly
+                       since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferijacobian~2.html'>MEF90HeatXferIJacobian</a></td>
+                 <td><a href='../module/m_mef90_heatxferassembly3d.html'>m_MEF90_HeatXferAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferIJacobian:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferoperator.html'>MEF90HeatXferOperator</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferOperator: wraps calls to MEF90HeatXferOperator from m_MEF90_HeatXferAssembly
+                       since overloading cannot be used here</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferoperator~2.html'>MEF90HeatXferOperator</a></td>
+                 <td><a href='../module/m_mef90_heatxferassembly3d.html'>m_MEF90_HeatXferAssembly3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferOperator: Build the operator. When called in type(tSNES), the solution time should always match the target time,
+                       so there is no need for interpolation of the fluxes, external, and boundary values</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfersetfromoptions.html'>MEF90HeatXferSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferSetFromOptions: initializes a MEF90HeatXfer_Type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfersettransients.html'>MEF90HeatXferSetTransients</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferSetTransients: Update all transient data (boundary / external temperature and fluxes)
+                            using the proper scaling law</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxfervertexsetoptionssetfromoptions.html'>MEF90HeatXferVertexSetOptionsSetFromOptions</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferVertexSetOptionsSetFromOptions: reads the options of a single vertex set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferview.html'>MEF90HeatXferView</a></td>
+                 <td><a href='../module/m_mef90_heatxfer_class.html'>m_MEF90_HeatXfer_class</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferView: the default viewer for a MEF90HeatXfer_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90heatxferviewexo.html'>MEF90HeatXferViewEXO</a></td>
+                 <td><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HeatXferViewEXO:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookelawisoenu2dplanestrain.html'>MEF90HookeLawIsoEnu2DPlaneStrain</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookelawisoenu2dplanestress.html'>MEF90HookeLawIsoEnu2DPlaneStress</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookelawisoenu3d.html'>MEF90HookeLawIsoENu3D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookelawisolambdamu2d.html'>MEF90HookeLawIsoLambdaMu2D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Subroutine</td>
+                 <td><p>Subroutine generating various types of Hooke's laws</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookelawisolambdamu3d.html'>MEF90HookeLawIsoLambdaMu3D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw2ddiff.html'>MEF90HookesLaw2DDiff</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw2DDiff:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw2dsum.html'>MEF90HookesLaw2DSum</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw2DSum:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw2dxmat2d.html'>MEF90HookesLaw2DXMat2D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw2DXMat2D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw2dxmats2d.html'>MEF90HookesLaw2DXMatS2D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw2DXMatS2D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw3ddiff.html'>MEF90HookesLaw3DDiff</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw3DDiff:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw3dsum.html'>MEF90HookesLaw3DSum</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw3DSum:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw3dxmat3d.html'>MEF90HookesLaw3DXMat3D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw2DXMat3D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslaw3dxmats3d.html'>MEF90HookesLaw3DXMatS3D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90HookesLaw2DXMatS3D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic2d_mult.html'>MEF90HookesLawIsotropic2D_mult</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic2d.html'>m_MEF90_HookesLawIsotropic2D</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic2d_multmult.html'>MEF90HookesLawIsotropic2D_multmult</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic2d.html'>m_MEF90_HookesLawIsotropic2D</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic2d_setfromoptions.html'>MEF90HookesLawIsotropic2D_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic2d.html'>m_MEF90_HookesLawIsotropic2D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HookesLawIsotropic2D_setFromOptions: initializes a MEF90HookesLawIsotropic2D from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic2d_view.html'>MEF90HookesLawIsotropic2D_View</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic2d.html'>m_MEF90_HookesLawIsotropic2D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HookesLawIsotropic2D_view: the default viewer for a MEF90_DefMechAT_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic3d_mult.html'>MEF90HookesLawIsotropic3D_mult</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic3d.html'>m_MEF90_HookesLawIsotropic3D</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic3d_multmult.html'>MEF90HookesLawIsotropic3D_multmult</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic3d.html'>m_MEF90_HookesLawIsotropic3D</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic3d_setfromoptions.html'>MEF90HookesLawIsotropic3D_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic3d.html'>m_MEF90_HookesLawIsotropic3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HookesLawIsotropic3D_setFromOptions: initializes a MEF90HookesLawIsotropic3D_type from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawisotropic3d_view.html'>MEF90HookesLawIsotropic3D_View</a></td>
+                 <td><a href='../module/m_mef90_hookeslawisotropic3d.html'>m_MEF90_HookesLawIsotropic3D</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HookesLawIsotropic3D_view: the default viewer for a MEF90_DefMechAT_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawzero_mult.html'>MEF90HookesLawZero_mult</a></td>
+                 <td><a href='../module/m_mef90_hookeslawzero.html'>m_MEF90_HookesLawZero</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawzero_multmult.html'>MEF90HookesLawZero_multmult</a></td>
+                 <td><a href='../module/m_mef90_hookeslawzero.html'>m_MEF90_HookesLawZero</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawzero_setfromoptions.html'>MEF90HookesLawZero_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_hookeslawzero.html'>m_MEF90_HookesLawZero</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HookesLawZero_setFromOptions: initializes a MEF90HookesLawZero from options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90hookeslawzero_view.html'>MEF90HookesLawZero_View</a></td>
+                 <td><a href='../module/m_mef90_hookeslawzero.html'>m_MEF90_HookesLawZero</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90HookesLawZero_view: the default viewer for a MEF90_DefMechAT_Type</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90initialize.html'>MEF90Initialize</a></td>
+                 <td><a href='../module/m_mef90.html'>m_MEF90</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90Initialize:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90iosfcreate.html'>MEF90IOSFCreate</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90IOSFCreate: sf mapping between local and IO ordering and distribution</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90isallgathermerge.html'>MEF90ISAllGatherMerge</a></td>
+                 <td><a href='../module/m_mef90_utils.html'>m_MEF90_Utils</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90ISAllGatherMerge: Merge all values of an type(tIS), deleting duplicates</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90l2dotproductset.html'>MEF90L2DotProductSet</a></td>
+                 <td><a href='../module/m_mef90_normsimplementation_mef90element3dvect.html'>m_MEF90_NormsImplementation_MEF90Element3DVect</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90L2DotProductSet: Assemble and add the contribution one processor to the L2 dot products of type(tVec) U and V
+                 on a cell / face / edge set, interpolated with element type elemType</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90l2normset.html'>MEF90L2NormSet</a></td>
+                 <td><a href='../module/m_mef90_normsimplementation_mef90element3dvect.html'>m_MEF90_NormsImplementation_MEF90Element3DVect</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90L2NormSet: Assemble and add the contribution one processor to the L2 norm of a Vect U
+                 on a cell / face / edge set, interpolated with element type elemType</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90materialsinitialize_private.html'>MEF90MaterialsInitialize_Private</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90MaterialsInitialize_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/mef90matrart.html'>MEF90MatRaRt</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/mef90matrtar.html'>MEF90MatRtaR</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90mpifinalize_private.html'>MEF90MPIFinalize_Private</a></td>
+                 <td><a href='../module/m_mef90_mpi.html'>m_MEF90_MPI</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90MPIFinalize_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90mpiinitialize_private.html'>MEF90MPIInitialize_Private</a></td>
+                 <td><a href='../module/m_mef90_mpi.html'>m_MEF90_MPI</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90MPIInitialize_Private:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90object_setfromoptions.html'>MEF90Object_setFromOptions</a></td>
+                 <td><a href='../module/m_mef90_baseclass.html'>m_MEF90_baseClass</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90Object_setFromOptions: generic version of the setFromOptions method for all MEF90Objects, which just prints the object if -verbose is set to a high value
+Can be overridden in classes if they have options to set.</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90object_view.html'>MEF90Object_view</a></td>
+                 <td><a href='../module/m_mef90_baseclass.html'>m_MEF90_baseClass</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90Object_view: Views a MEF90Object and flagged it as viewed so that it is not viewed multiple times when -verbose is set to a high value</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90sectionallocateconstraint.html'>MEF90SectionAllocateConstraint</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90SectionAllocateConstraint: Associates dof to a section</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90sectionallocatedof.html'>MEF90SectionAllocateDof</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90SectionAllocateDof: Associates dof to a section</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90sectionallocatedofset.html'>MEF90SectionAllocateDofSet</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90SectionAllocateDofSet: Associates dof to a section in a set</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90setupconstrainttableset.html'>MEF90SetupConstraintTableSet</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90SetupConstraintTableSet: Build the contribution of a set to the constraint table</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90strcount.html'>MEF90StrCount</a></td>
+                 <td><a href='../module/m_mef90_utils.html'>m_MEF90_Utils</a></td>
+                 <td>Function</td>
+                 <td><p>MEF90StrCount: counts the number of occurrences of a substring in a string</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90strtokenize.html'>MEF90StrTokenize</a></td>
+                 <td><a href='../module/m_mef90_utils.html'>m_MEF90_Utils</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90StrTokenize: Breaks a string into an array of substrings based on a delimiter</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90veccopysf.html'>MEF90VecCopySF</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecCopySF: rearrange a type(tVec) according to the given SF</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90veccreateio.html'>MEF90VecCreateIO</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecCreateIO: create IO type(tVec)</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90vecgetclosuresize.html'>MEF90VecGetClosureSize</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecGetClosureSize: Associates dof to a section</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90vecglobaltolocalconstraint.html'>MEF90VecGlobalToLocalConstraint</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecGlobalToLocalConstraint: do a VecGlobaltoLocal then copy constrained values</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90vecsetbcvaluesfromoptions.html'>MEF90VecSetBCValuesFromOptions</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecSetBCValuesFromOptions: Fill boundary values of a type(tVec) using command line options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90vecsetbcvaluesfromoptionsexpr.html'>MEF90VecSetBCValuesFromOptionsExpr</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecSetBCValuesFromOptionsExpr: Fill boundary values of a type(tVec) using expressions passed as petsc options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90vecsetvaluesfromoptions.html'>MEF90VecSetValuesFromOptions</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecSetValuesFromOptions: Fill values of a type(tVec) using command line options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mef90vecsetvaluesfromoptionsexpr.html'>MEF90VecSetValuesFromOptionsExpr</a></td>
+                 <td><a href='../module/m_mef90_dmplex.html'>m_MEF90_DMPlex</a></td>
+                 <td>Subroutine</td>
+                 <td><p>MEF90VecSetValuesFromOptionsExpr: Fill values of a type(tVec) using expressions passed as petsc options</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/moment.html'>Moment</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/norm.html'>Norm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/odotmats2d.html'>oDotMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/odotmats3d.html'>oDotMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(ASTERISK).html'>operator(*)</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(ASTERISK)~2.html'>operator(*)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(+).html'>operator(+)</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(+)~2.html'>operator(+)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(-).html'>operator(-)</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(-)~2.html'>operator(-)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(.crossp.).html'>operator(.CrossP.)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(.dotp.).html'>operator(.DotP.)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(.odot.).html'>operator(.oDot.)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(.symp.).html'>operator(.SymP.)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(.tensp.).html'>operator(.TensP.)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/operator(SLASH).html'>operator(/)</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rartmat2d.html'>RARtMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rartmat3d.html'>RARtMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rartmats2d.html'>RARtMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rartmats3d.html'>RARtMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rtarmat2d.html'>RtARMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rtarmat3d.html'>RtaRMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rtarmats2d.html'>RtaRMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/rtarmats3d.html'>RtaRMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scalarxmef90hookeslaw2d.html'>ScalarXMEF90HookesLaw2D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>ScalarXMEF90HookesLaw2D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/scalarxmef90hookeslaw3d.html'>ScalarXMEF90HookesLaw3D</a></td>
+                 <td><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></td>
+                 <td>Function</td>
+                 <td><p>ScalarXMEF90HookesLaw3D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/setfromoptionsdeviatoric.html'>setFromOptionsDeviatoric</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitdeviatoric.html'>m_MEF90_DefMechSplitDeviatoric</a></td>
+                 <td>Subroutine</td>
+                 <td><p>setFromOptionsDeviatoric: the default constructor for a MEF90DefMechSplitDeviatoric</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/setfromoptionshd.html'>setFromOptionsHD</a></td>
+                 <td><a href='../module/m_mef90_defmechsplithd.html'>m_MEF90_DefMechSplitHD</a></td>
+                 <td>Subroutine</td>
+                 <td><p>setFromOptionsHD: the default constructor for a MEF90DefMechSplitHD</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/setupdeviatoric.html'>setupDeviatoric</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitdeviatoric.html'>m_MEF90_DefMechSplitDeviatoric</a></td>
+                 <td>Subroutine</td>
+                 <td><p>setupDeviatoric: the setup routine for a MEF90DefMechSplitDeviatoric, which does nothing since there is no split</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/setuphd.html'>setupHD</a></td>
+                 <td><a href='../module/m_mef90_defmechsplithd.html'>m_MEF90_DefMechSplitHD</a></td>
+                 <td>Subroutine</td>
+                 <td><p>setupHD: the setup routine for a MEF90DefMechSplitHD, which does nothing since there is no split</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/setupnone.html'>setupNONE</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitnone.html'>m_MEF90_DefMechSplitNone</a></td>
+                 <td>Subroutine</td>
+                 <td><p>setupNONE: the setup routine for a MEF90DefMechSplitNone, which does nothing since there is no split</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/simplexnormal.html'>simplexNormal</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/simplexnormal2d.html'>simplexNormal2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td><p>simplexNormal2D: Compute the normal to a simplex in 2D</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/simplexnormal3d.html'>simplexNormal3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td><p>simplexNormal3D: Compute the normal to a simplex in 3D</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/spectraldecomposition.html'>SpectralDecomposition</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/sqrt.html'>sqrt</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/summat2d.html'>SumMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/summat3d.html'>SumMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/summats2d.html'>SumMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/summats3d.html'>SumMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sumtens4os2d.html'>SumTens4OS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sumtens4os3d.html'>SumTens4OS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sumvect2d.html'>SumVect2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sumvect3d.html'>SumVect3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/symmetrize.html'>Symmetrize</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/symmetrize2d.html'>Symmetrize2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/symmetrize3d.html'>Symmetrize3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sympmats2d.html'>SymPMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sympmats3d.html'>SymPMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sympvect2d.html'>SymPVect2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/sympvect3d.html'>SymPVect3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2d2array4.html'>Tens4OS2D2Array4</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2d_get_real.html'>Tens4OS2D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2deq.html'>Tens4OS2DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dquot.html'>Tens4OS2DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dsquareroot.html'>Tens4OS2DSquareRoot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dtoarray.html'>Tens4OS2DToArray</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dtransform.html'>Tens4OS2DTransform</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dxdble.html'>Tens4OS2DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dxmat2d.html'>Tens4OS2DXMat2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Tens4OS2DXMat2D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os2dxmats2d.html'>Tens4OS2DXMatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3d2array4.html'>Tens4OS3D2Array4</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3d_get_real.html'>Tens4OS3D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3deq.html'>Tens4OS3DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dquot.html'>Tens4OS3DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dsquareroot.html'>Tens4OS3DSquareRoot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dtoarray.html'>Tens4OS3DToArray</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dtransform.html'>Tens4OS3DTransform</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dxdble.html'>Tens4OS3DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dxmat3d.html'>Tens4OS3DXMat3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Tens4OS3DXMat3D:</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tens4os3dxmats3d.html'>Tens4OS3DXMatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/tens4ostransform.html'>Tens4OSTransform</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tenspvect2d.html'>TensPVect2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/tenspvect3d.html'>TensPVect3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/trace.html'>Trace</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/trace2d.html'>Trace2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/trace2ds.html'>Trace2DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/trace3d.html'>Trace3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/trace3ds.html'>Trace3DS</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/transpose.html'>Transpose</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/transpose2d.html'>Transpose2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/transpose3d.html'>Transpose3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect2d_get_real.html'>Vect2D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect2d_get_vectr.html'>Vect2D_Get_VectR</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect2deq.html'>Vect2DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect2dnorm.html'>Vect2DNorm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td><p>Overloading euclidian norm of derived types</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect2dquot.html'>Vect2DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect2dxdble.html'>Vect2DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect3d_get_real.html'>Vect3D_Get_Real</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect3d_get_vectr.html'>Vect3D_Get_VectR</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect3deq.html'>Vect3DEQ</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect3dnorm.html'>Vect3DNorm</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect3dquot.html'>Vect3DQuot</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vect3dxdble.html'>Vect3DXDble</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vectr_get_mats2d.html'>VectR_Get_MatS2D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vectr_get_mats3d.html'>VectR_Get_MatS3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/viewdeviatoric.html'>viewDeviatoric</a></td>
+                 <td><a href='../module/m_mef90_defmechsplitdeviatoric.html'>m_MEF90_DefMechSplitDeviatoric</a></td>
+                 <td>Subroutine</td>
+                 <td><p>viewDeviatoric: view a MEF90DefMechSplitDeviatoric</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/viewhd.html'>viewHD</a></td>
+                 <td><a href='../module/m_mef90_defmechsplithd.html'>m_MEF90_DefMechSplitHD</a></td>
+                 <td>Subroutine</td>
+                 <td><p>viewHD: view a MEF90DefMechSplitHD</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/vol_tetra_3d.html'>Vol_Tetra_3D</a></td>
+                 <td><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/wat1.html'>wAT1</a></td>
+                 <td><a href='../module/m_mef90_defmechat1.html'>m_MEF90_DefMechAT1</a></td>
+                 <td>Function</td>
+                 <td><p>wAT1: the "w" function of the standard AT1 model, i.e. $w(\alpha) = \alpha$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/wat1exp.html'>wAT1exp</a></td>
+                 <td><a href='../module/m_mef90_defmechat1exp.html'>m_MEF90_DefMechAT1exp</a></td>
+                 <td>Function</td>
+                 <td><p>wAT1exp: the "w" function of the standard AT1exp model, i.e. </p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/wat2.html'>wAT2</a></td>
+                 <td><a href='../module/m_mef90_defmechat2.html'>m_MEF90_DefMechAT2</a></td>
+                 <td>Function</td>
+                 <td><p>wAT2: the "w" function of the standard AT2 model, i.e. $w(\alpha) = \alpha^2$</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/wkkl.html'>wKKL</a></td>
+                 <td><a href='../module/m_mef90_defmechatkkl.html'>m_MEF90_DefMechATKKL</a></td>
+                 <td>Function</td>
+                 <td><p>wKKL: the "w" function of the of the KKL (v2) model</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/wlinsoft.html'>wLinSoft</a></td>
+                 <td><a href='../module/m_mef90_defmechatlinsoft.html'>m_MEF90_DefMechATLinSoft</a></td>
+                 <td>Function</td>
+                 <td><p>wLinSoft: the "w" function of the LinSoft model</p></td>
+               </tr>
+			 </tbody></table>
+             
+        </div>
+      </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              mef90 / vDef
+ was developed by Blaise Bourdin<br>              &copy; 2026 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

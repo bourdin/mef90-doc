@@ -1,0 +1,679 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Fortran + PETSc reference implementation of the variational approach to fracture">
+    <meta name="author" content="Blaise Bourdin" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>HeatXfer &ndash; mef90 / vDef</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+      <script src="../js/MathJax-config/mathjax-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">mef90 / vDef </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>HeatXfer      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="22.7% of total for programs.">427 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/HeatXfer.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/heatxfer.f90.html'>HeatXfer.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">HeatXfer</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/heatxfer.html#variable-iobuffer~32">IOBuffer</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-mef90ctx~17">MEF90Ctx</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-mef90globaloptions~5">MEF90GlobalOptions</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-mef90heatxferctx~16">MEF90HeatXferCtx</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-mef90heatxferglobaloptions~11">MEF90HeatXferGlobalOptions</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-cellwork">cellWork</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-dim~28">dim</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-dm~44">dm</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-energy~11">energy</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-facework">faceWork</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-flg~9">flg</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-ierr~204">ierr</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-numcellset~2">numCellSet</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-numfaceset~2">numFaceSet</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-set~40">set</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-setid~37">setID</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-setis~32">setIS</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-step~15">step</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperature~2">temperature</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperaturedm~2">temperatureDM</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperatureresidual~2">temperatureResidual</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperaturesnes~2">temperatureSNES</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperaturets~2">temperatureTS</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperaturetsinitialstep">temperatureTSInitialStep</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-temperaturetsinitialtimestep">temperatureTSInitialTimeStep</a>
+            <a class="list-group-item" href="../program/heatxfer.html#variable-time~8">time</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></li>
+                  <li class="list-inline-item"><a href='../module/m_mef90.html'>m_MEF90</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iobuffer~32"></span>
+              character(len=MEF90MXSTRLEN)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>IOBuffer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90ctx~17"></span>
+              type(<a href='../type/mef90ctx_type.html'>MEF90Ctx_Type</a>),
+            </td>
+            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>MEF90Ctx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90globaloptions~5"></span>
+              type(<a href='../type/mef90ctxglobaloptions_type.html'>MEF90CtxGlobalOptions_Type</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>MEF90GlobalOptions</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90heatxferctx~16"></span>
+              type(<a href='../type/mef90heatxfer_type.html'>MEF90HeatXfer_Type</a>),
+            </td>
+            <td>
+              target
+            </td>
+            <td>::</td>
+            <td><strong>MEF90HeatXferCtx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90heatxferglobaloptions~11"></span>
+              type(<a href='../type/mef90heatxferglobaloptions_type.html'>MEF90HeatXferGlobalOptions_Type</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>MEF90HeatXferGlobalOptions</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cellwork"></span>
+              real(kind=C_DOUBLE),
+            </td>
+            <td>
+              Dimension(:), Pointer
+            </td>
+            <td>::</td>
+            <td><strong>cellWork</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dim~28"></span>
+              integer(kind=C_INT32_T)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dim</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dm~44"></span>
+              type(tDM)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-energy~11"></span>
+              real(kind=C_DOUBLE),
+            </td>
+            <td>
+              Dimension(:), Pointer
+            </td>
+            <td>::</td>
+            <td><strong>energy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-facework"></span>
+              real(kind=C_DOUBLE),
+            </td>
+            <td>
+              Dimension(:), Pointer
+            </td>
+            <td>::</td>
+            <td><strong>faceWork</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-flg~9"></span>
+              logical(kind=C_BOOL)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>flg</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~204"></span>
+              integer(kind=C_INT32_T)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-numcellset~2"></span>
+              integer(kind=C_INT32_T)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>numCellSet</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-numfaceset~2"></span>
+              integer(kind=C_INT32_T)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>numFaceSet</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-set~40"></span>
+              integer(kind=C_INT32_T)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>set</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-setid~37"></span>
+              integer(kind=C_INT32_T),
+            </td>
+            <td>
+              Dimension(:), Pointer
+            </td>
+            <td>::</td>
+            <td><strong>setID</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-setis~32"></span>
+              type(tIS)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>setIS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-step~15"></span>
+              integer(kind=C_INT32_T)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>step</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperature~2"></span>
+              type(tVec)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperature</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturedm~2"></span>
+              type(tDM)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureDM</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperatureresidual~2"></span>
+              type(tVec)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureResidual</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturesnes~2"></span>
+              type(tSNES)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureSNES</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturets~2"></span>
+              type(tTS)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureTS</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturetsinitialstep"></span>
+              real(kind=C_DOUBLE)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureTSInitialStep</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-temperaturetsinitialtimestep"></span>
+              real(kind=C_DOUBLE)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>temperatureTSInitialTimeStep</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-time~8"></span>
+              real(kind=C_DOUBLE),
+            </td>
+            <td>
+              Dimension(:), Pointer
+            </td>
+            <td>::</td>
+            <td><strong>time</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              mef90 / vDef
+ was developed by Blaise Bourdin<br>              &copy; 2026 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
