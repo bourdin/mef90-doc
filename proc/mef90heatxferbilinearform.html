@@ -95,25 +95,24 @@
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Blaise Bourdin (2012-14, bourdin@lsu.edu)
-Blaise Bourdin (2022, bourdin@mcmaster.ca)
-Alexis Marboeuf (2022, marboeua@mcmaster.ca)</li>
+Blaise Bourdin (2022, bourdin@mcmaster.ca)</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.4% of total for procedures.">270 statements</a>
+                 title=" 0.1% of total for procedures.">22 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/m_MEF90_HeatXferAssembly.F90"> Source File</a>
+              <a href="../src/m_MEF90_HeatXfer.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_heatxferassembly.f90.html'>m_MEF90_HeatXferAssembly.F90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_mef90_heatxferassembly3d.html'>m_MEF90_HeatXferAssembly3D</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_heatxfer.f90.html'>m_MEF90_HeatXfer.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_mef90_heatxfer.html'>m_MEF90_HeatXfer</a></li>
             <li class="breadcrumb-item active" aria-current="page">MEF90HeatXferBilinearForm</li>
           </ol>
         </nav>
@@ -161,11 +160,12 @@ Alexis Marboeuf (2022, marboeua@mcmaster.ca)</li>
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine MEF90HeatXferBilinearForm(snesTemp, x, A, M, MEF90HeatXferCtx, ierr)  
+    <h2>public  subroutine MEF90HeatXferBilinearForm(snesTemp, x, A, M, PETScCtx, ierr)  
 </h2>
     
 
-    <p>MEF90HeatXferBilinearForm:</p>
+    <p>MEF90HeatXferBilinearForm: wraps calls to MEF90HeatXferBilinearForm from m_MEF90_HeatXferAssembly
+                           since overloading cannot be used here</p>
 
 
     <h3>Arguments</h3>
@@ -196,7 +196,7 @@ Alexis Marboeuf (2022, marboeua@mcmaster.ca)</li>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~7"></span>
+              <span class="anchor" id="variable-x~6"></span>
               type(tVec),
             </td>
 <td>intent(in)</td>
@@ -211,7 +211,7 @@ Alexis Marboeuf (2022, marboeua@mcmaster.ca)</li>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~6"></span>
+              <span class="anchor" id="variable-a~4"></span>
               type(tMat),
             </td>
 <td>intent(inout)</td>
@@ -241,22 +241,22 @@ Alexis Marboeuf (2022, marboeua@mcmaster.ca)</li>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-mef90heatxferctx~2"></span>
-              type(<a href='../type/mef90heatxfer_type.html'>MEF90HeatXfer_Type</a>),
+              <span class="anchor" id="variable-petscctx~9"></span>
+              type(c_ptr),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>MEF90HeatXferCtx</strong></td>
+            <td><strong>PETScCtx</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~104"></span>
+              <span class="anchor" id="variable-ierr~36"></span>
               integer(kind=C_INT32_T),
             </td>
 <td>intent(inout)</td>

@@ -97,20 +97,20 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="<p> 0.0% of total for procedures.</p>Including implementation: 90 statements,  0.5% of total for procedures.">3 statements</a>
+                 title="<p> 0.0% of total for procedures.</p>Including implementation: 73 statements,  0.4% of total for procedures.">3 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/m_MEF90_LinAlg.F90"> Source File</a>
+              <a href="../src/m_MEF90_Materials.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_linalg.f90.html'>m_MEF90_LinAlg.F90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_mef90_linalg.html'>m_MEF90_LinAlg</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_materials.f90.html'>m_MEF90_Materials.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_mef90_materials.html'>m_MEF90_Materials</a></li>
             <li class="breadcrumb-item active" aria-current="page">operator(-)</li>
           </ol>
         </nav>
@@ -156,14 +156,8 @@
       </a>
       <div id="modprocs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-difvect2d~2">DifVect2D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-difvect3d~2">DifVect3D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-difmat2d~2">DifMat2D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-difmat3d~2">DifMat3D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-difmats2d~2">DifMatS2D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-difmats3d~2">DifMatS3D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-diftens4os2d~2">DifTens4OS2D</a>
-            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-diftens4os3d~2">DifTens4OS3D</a>
+            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-mef90hookeslaw2ddiff~2">MEF90HookesLaw2DDiff</a>
+            <a class="list-group-item" href="../interface/operator(-)~2.html#moduleprocedure-mef90hookeslaw3ddiff~2">MEF90HookesLaw3DDiff</a>
         </div>
       </div>
     </div>
@@ -183,11 +177,14 @@
 
         <h2>Module Procedures</h2>
             <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-difvect2d"></span> <h3>public  function <a href='../proc/difvect2d.html'>DifVect2D</a>(V1, V2)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mef90hookeslaw2ddiff"></span> <h3>public  function <a href='../proc/mef90hookeslaw2ddiff.html'>MEF90HookesLaw2DDiff</a>(A, B)  
 </h3></div>
     <div class="card-body">
-          
-  
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2020, bourdin@lsu.edu)</dd>
+    </dl>
+
+  <p>MEF90HookesLaw2DDiff:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -202,30 +199,30 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-v1~4"></span>
-              type(<a href='../type/vect2d.html'>Vect2D</a>),
+              <span class="anchor" id="variable-a~55"></span>
+              type(<a href='../type/mef90hookeslaw2d.html'>MEF90HookesLaw2D</a>),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>V1</strong></td>
+            <td><strong>A</strong></td>
             <td>
 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v2~4"></span>
-              type(<a href='../type/vect2d.html'>Vect2D</a>),
+              <span class="anchor" id="variable-b~3"></span>
+              type(<a href='../type/mef90hookeslaw2d.html'>MEF90HookesLaw2D</a>),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>V2</strong></td>
+            <td><strong>B</strong></td>
             <td>
 
             </td>
@@ -235,7 +232,7 @@
 
     <h4>
     Return Value
-    <small>type(<a href='../type/vect2d.html'>Vect2D</a>)</small>
+    <small>type(<a href='../type/mef90hookeslaw2d.html'>MEF90HookesLaw2D</a>)</small>
     </h4>
     
 
@@ -243,11 +240,14 @@
   </div>
 
             <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-difvect3d"></span> <h3>public  function <a href='../proc/difvect3d.html'>DifVect3D</a>(V1, V2)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mef90hookeslaw3ddiff"></span> <h3>public  function <a href='../proc/mef90hookeslaw3ddiff.html'>MEF90HookesLaw3DDiff</a>(A, B)  
 </h3></div>
     <div class="card-body">
-          
-  
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Blaise Bourdin (2020, bourdin@lsu.edu)</dd>
+    </dl>
+
+  <p>MEF90HookesLaw3DDiff:</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -262,30 +262,30 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-v1~5"></span>
-              type(<a href='../type/vect3d.html'>Vect3D</a>),
+              <span class="anchor" id="variable-a~56"></span>
+              type(<a href='../type/mef90hookeslaw3d.html'>MEF90HookesLaw3D</a>),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>V1</strong></td>
+            <td><strong>A</strong></td>
             <td>
 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v2~5"></span>
-              type(<a href='../type/vect3d.html'>Vect3D</a>),
+              <span class="anchor" id="variable-b~4"></span>
+              type(<a href='../type/mef90hookeslaw3d.html'>MEF90HookesLaw3D</a>),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>V2</strong></td>
+            <td><strong>B</strong></td>
             <td>
 
             </td>
@@ -295,367 +295,7 @@
 
     <h4>
     Return Value
-    <small>type(<a href='../type/vect3d.html'>Vect3D</a>)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
-            <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-difmat2d"></span> <h3>public  function <a href='../proc/difmat2d.html'>DifMat2D</a>(M1, M2)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m1~5"></span>
-              type(<a href='../type/mat2d.html'>Mat2D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m2~5"></span>
-              type(<a href='../type/mat2d.html'>Mat2D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>type(<a href='../type/mat2d.html'>Mat2D</a>)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
-            <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-difmat3d"></span> <h3>public  function <a href='../proc/difmat3d.html'>DifMat3D</a>(M1, M2)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m1~7"></span>
-              type(<a href='../type/mat3d.html'>Mat3D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m2~7"></span>
-              type(<a href='../type/mat3d.html'>Mat3D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>type(<a href='../type/mat3d.html'>Mat3D</a>)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
-            <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-difmats2d"></span> <h3>public  function <a href='../proc/difmats2d.html'>DifMatS2D</a>(M1, M2)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m1~6"></span>
-              type(<a href='../type/mats2d.html'>MatS2D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m2~6"></span>
-              type(<a href='../type/mats2d.html'>MatS2D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>type(<a href='../type/mats2d.html'>MatS2D</a>)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
-            <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-difmats3d"></span> <h3>public  function <a href='../proc/difmats3d.html'>DifMatS3D</a>(M1, M2)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m1~8"></span>
-              type(<a href='../type/mats3d.html'>MatS3D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-m2~8"></span>
-              type(<a href='../type/mats3d.html'>MatS3D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>M2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>type(<a href='../type/mats3d.html'>MatS3D</a>)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
-            <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-diftens4os2d"></span> <h3>public  function <a href='../proc/diftens4os2d.html'>DifTens4OS2D</a>(T1, T2)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1~3"></span>
-              type(<a href='../type/tens4os2d.html'>Tens4OS2D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>T1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t2~3"></span>
-              type(<a href='../type/tens4os2d.html'>Tens4OS2D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>T2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>type(<a href='../type/tens4os2d.html'>Tens4OS2D</a>)</small>
-    </h4>
-    
-
-    </div>
-  </div>
-
-            <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-diftens4os3d"></span> <h3>public  function <a href='../proc/diftens4os3d.html'>DifTens4OS3D</a>(T1, T2)  
-</h3></div>
-    <div class="card-body">
-          
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1~4"></span>
-              type(<a href='../type/tens4os3d.html'>Tens4OS3D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>T1</strong></td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t2~4"></span>
-              type(<a href='../type/tens4os3d.html'>Tens4OS3D</a>),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>T2</strong></td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    <h4>
-    Return Value
-    <small>type(<a href='../type/tens4os3d.html'>Tens4OS3D</a>)</small>
+    <small>type(<a href='../type/mef90hookeslaw3d.html'>MEF90HookesLaw3D</a>)</small>
     </h4>
     
 
