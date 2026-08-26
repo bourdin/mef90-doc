@@ -94,24 +94,27 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Blaise Bourdin (2012-14, bourdin@lsu.edu)</li>
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Blaise Bourdin (2012-19, bourdin@lsu.edu)
+Erwan Tanne (2012-19, erwan.tanne@gmail.com)
+Blaise Bourdin (2022, bourdin@mcmaster.ca)
+Alexis Marboeuf (2022, marboeua@mcmaster.ca)</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 0.1% of total for procedures.">22 statements</a>
+                 title=" 1.7% of total for procedures.">328 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/m_MEF90_DefMech.F90"> Source File</a>
+              <a href="../src/m_MEF90_DefMechAssembly.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmech.f90.html'>m_MEF90_DefMech.F90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmechassembly.f90.html'>m_MEF90_DefMechAssembly.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></li>
             <li class="breadcrumb-item active" aria-current="page">MEF90DefMechBilinearFormDamage</li>
           </ol>
         </nav>
@@ -159,12 +162,11 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine MEF90DefMechBilinearFormDamage(snesDamage, damage, A, M, PETScCtx, ierr)  
+    <h2>public  subroutine MEF90DefMechBilinearFormDamage(snesDamage, damage, A, M, MEF90DefMechCtx, ierr)  
 </h2>
     
 
-    <p>MEF90DefMechBilinearFormDamage: wraps calls to MEF90DefMechBilinearFormDamage from m_MEF90_DefMechAssembly
-                          since overloading cannot be used here</p>
+    <p>MEF90DefMechBilinearFormDamage:</p>
 
 
     <h3>Arguments</h3>
@@ -195,7 +197,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-damage~4"></span>
+              <span class="anchor" id="variable-damage~3"></span>
               type(tVec),
             </td>
 <td>intent(in)</td>
@@ -225,7 +227,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~2"></span>
+              <span class="anchor" id="variable-m~3"></span>
               type(tMat),
             </td>
 <td>intent(inout)</td>
@@ -240,22 +242,22 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-petscctx~5"></span>
-              type(c_ptr),
+              <span class="anchor" id="variable-mef90defmechctx~10"></span>
+              type(<a href='../type/mef90defmech_type.html'>MEF90DefMech_Type</a>),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>PETScCtx</strong></td>
+            <td><strong>MEF90DefMechCtx</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~13"></span>
+              <span class="anchor" id="variable-ierr~34"></span>
               integer(kind=C_INT32_T),
             </td>
 <td>intent(inout)</td>

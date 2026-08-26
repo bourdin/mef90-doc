@@ -94,24 +94,24 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Erwan Tanne (2015, erwan.tanne@gmail.com)</li>
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Erwan Tanne (2012-14, erwan.tanne@gmail.com)</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 0.0% of total for procedures.">6 statements</a>
+                 title=" 0.1% of total for procedures.">10 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/m_MEF90_DefMechAssembly.F90"> Source File</a>
+              <a href="../src/m_MEF90_DefMech.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmechassembly.f90.html'>m_MEF90_DefMechAssembly.F90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_mef90_defmechassembly3d.html'>m_MEF90_DefMechAssembly3D</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmech.f90.html'>m_MEF90_DefMech.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></li>
             <li class="breadcrumb-item active" aria-current="page">MEF90DefMechPlasticDissipation</li>
           </ol>
         </nav>
@@ -159,11 +159,10 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine MEF90DefMechPlasticDissipation(MEF90DefMechCtx, plasticStrainOld, energy, ierr)  
+    <h2>public  subroutine MEF90DefMechPlasticDissipation(x, MEF90DefMechCtx, plasticStrainOld, energy, ierr)  
 </h2>
     
 
-    <p>MEF90DefMechPlasticDissipation:</p>
 
 
     <h3>Arguments</h3>
@@ -179,7 +178,22 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-mef90defmechctx~30"></span>
+              <span class="anchor" id="variable-x~18"></span>
+              type(tVec),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mef90defmechctx~23"></span>
               type(<a href='../type/mef90defmech_type.html'>MEF90DefMech_Type</a>),
             </td>
 <td>intent(in)</td>
@@ -224,7 +238,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~178"></span>
+              <span class="anchor" id="variable-ierr~179"></span>
               integer(kind=C_INT32_T),
             </td>
 <td>intent(inout)</td>

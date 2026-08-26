@@ -94,24 +94,26 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Blaise Bourdin (2012-14, bourdin@lsu.edu)</li>
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Erwan Tanne (2015, erwan.tanne@gmail.com)
+Stella Brach (2017, brach.ste@gmail.com)
+Blaise Bourdin (2022, bourdin@mcmaster.ca)</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 0.1% of total for procedures.">15 statements</a>
+                 title=" 0.0% of total for procedures.">7 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/m_MEF90_DefMech.F90"> Source File</a>
+              <a href="../src/m_MEF90_DefMechPlasticity.F90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmech.f90.html'>m_MEF90_DefMech.F90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_mef90_defmech.html'>m_MEF90_DefMech</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_mef90_defmechplasticity.f90.html'>m_MEF90_DefMechPlasticity.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_mef90_defmechplasticity3d.html'>m_MEF90_DefMechPlasticity3D</a></li>
             <li class="breadcrumb-item active" aria-current="page">MEF90DefMechPlasticStrainUpdate</li>
           </ol>
         </nav>
@@ -161,10 +163,21 @@
     <div class="col-md-9" id='text'>
     <h2>public  subroutine MEF90DefMechPlasticStrainUpdate(MEF90DefMechCtx, plasticStrain, x, PlasticStrainOld, plasticStrainPrevious, cumulatedDissipatedPlasticEnergyVariation, cumulatedDissipatedPlasticEnergyOld, ierr)  
 </h2>
-    
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='http://fortranwiki.org/fortran/show/iso_c_binding'>iso_c_binding</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
 
-    <p>MEF90DefMechPlasticStrainUpdate: wraps calls to MEF90DefMechPlasticStrainUpdate from m_MEF90_DefMechPlasticity
-                      since overloading cannot be used here</p>
+
+    <p>MEF90DefMechPlasticStrainUpdate:</p>
 
 
     <h3>Arguments</h3>
@@ -180,7 +193,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-mef90defmechctx~23"></span>
+              <span class="anchor" id="variable-mef90defmechctx~15"></span>
               type(<a href='../type/mef90defmech_type.html'>MEF90DefMech_Type</a>),
             </td>
 <td>intent(in)</td>
@@ -210,7 +223,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~4"></span>
+              <span class="anchor" id="variable-x~9"></span>
               type(tVec),
             </td>
 <td>intent(in)</td>
@@ -285,7 +298,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~24"></span>
+              <span class="anchor" id="variable-ierr~76"></span>
               integer(kind=C_INT32_T),
             </td>
 <td>intent(inout)</td>

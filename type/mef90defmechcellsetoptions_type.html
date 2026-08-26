@@ -97,7 +97,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="<p> 3.6% of total for derived types.</p>Including implementation: 137 statements,  3.8% of total for derived types.">18 statements</a>
+                 title="<p> 2.9% of total for derived types.</p>Including implementation: 121 statements,  3.4% of total for derived types.">14 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -140,22 +140,18 @@
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-crackvolumecontrolled">CrackVolumeControlled</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-has_damagebc">Has_damageBC</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-has_displacementbc">Has_displacementBC</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-workcontrolled">WorkControlled</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-bodyforce">bodyforce</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-boundarydamage">boundaryDamage</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-boundarydisplacement">boundaryDisplacement</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-cohesivedisplacement">cohesiveDisplacement</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-cohesivestiffness">cohesiveStiffness</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-comm">comm</a>
+            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-comm~3">comm</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-crackpressure">crackPressure</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-displacementlowerbound">displacementLowerBound</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-displacementupperbound">displacementUpperBound</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-linearthermalexpansion">linearThermalExpansion</a>
+            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-linearthermalexpansion~7">linearThermalExpansion</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-name">name</a>
             <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-plasticitytype">plasticityType</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-prefix">prefix</a>
+            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#variable-prefix~12">prefix</a>
         </div>
       </div>
     </div>
@@ -182,9 +178,9 @@
       </a>
       <div id="boundprocs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#boundprocedure-setfromoptions~4">setFromOptions</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#boundprocedure-view">view</a>
-            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#boundprocedure-view_internal~5">view_internal</a>
+            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#boundprocedure-setfromoptions~5">setFromOptions</a>
+            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#boundprocedure-view~2">view</a>
+            <a class="list-group-item" href="../type/mef90defmechcellsetoptions_type.html#boundprocedure-view_internal~10">view_internal</a>
         </div>
       </div>
     </div>
@@ -234,40 +230,6 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-has_damagebc"></span>
-              logical(kind=C_BOOL),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>Has_damageBC</strong></td>
-<td> =</td>
-                <td>PETSC_FALSE</td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-has_displacementbc"></span>
-              logical(kind=C_BOOL),
-            </td>
-              <td>public,</td>
-            <td>
-              dimension(3)
-            </td>
-            <td>::</td>
-            <td><strong>Has_displacementBC</strong></td>
-<td> =</td>
-                <td>[PETSC_FALSE, PETSC_FALSE, PETSC_FALSE]</td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
               <span class="anchor" id="variable-workcontrolled"></span>
               logical(kind=C_BOOL),
             </td>
@@ -294,40 +256,6 @@
             </td>
             <td>::</td>
             <td><strong>bodyforce</strong></td>
-<td> =</td>
-                <td>[0.0_kr, 0.0_kr, 0.0_kr]</td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-boundarydamage"></span>
-              real(kind=C_DOUBLE),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>boundaryDamage</strong></td>
-<td> =</td>
-                <td>0.0_kr</td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-boundarydisplacement"></span>
-              real(kind=C_DOUBLE),
-            </td>
-              <td>public,</td>
-            <td>
-              dimension(3)
-            </td>
-            <td>::</td>
-            <td><strong>boundaryDisplacement</strong></td>
 <td> =</td>
                 <td>[0.0_kr, 0.0_kr, 0.0_kr]</td>
             <td>
@@ -370,7 +298,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-comm"></span>
+              <span class="anchor" id="variable-comm~3"></span>
               integer(kind=C_INT32_T),
             </td>
               <td>public</td>
@@ -438,7 +366,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-linearthermalexpansion"></span>
+              <span class="anchor" id="variable-linearthermalexpansion~7"></span>
               class(<a href='mef90mat.html'>mef90Mat</a>),
             </td>
               <td>public,</td>
@@ -490,7 +418,7 @@ dependent and allocated by MEF90DefMechCellSetOptionsSetFromOptions</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-prefix"></span>
+              <span class="anchor" id="variable-prefix~12"></span>
               character(kind=c_char, len=MEF90MXSTRLEN),
             </td>
               <td>public</td>
@@ -518,7 +446,7 @@ dependent and allocated by MEF90DefMechCellSetOptionsSetFromOptions</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-setfromoptions~4"></span>
+      <span class="anchor" id="boundprocedure-setfromoptions~5"></span>
       <h3>
           procedure, public, pass(self) ::
   <strong>setFromOptions</strong> => <a href='/Users/blaise/Development/mef90/main/doc/html/proc/mef90object_setfromoptions.html'>MEF90Object_setFromOptions</a>
@@ -591,7 +519,7 @@ Can be overridden in classes if they have options to set.</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-view"></span>
+      <span class="anchor" id="boundprocedure-view~2"></span>
       <h3>
           procedure, public, pass(self) ::
   <strong>view</strong> => <a href='/Users/blaise/Development/mef90/main/doc/html/proc/mef90object_view.html'>MEF90Object_view</a>
@@ -678,7 +606,7 @@ Can be overridden in classes if they have options to set.</p>
           <div class="row">
               <div class="card mt-3">
     <div class="card-header codesum">
-      <span class="anchor" id="boundprocedure-view_internal~5"></span>
+      <span class="anchor" id="boundprocedure-view_internal~10"></span>
       <h3>
           procedure, public, pass(self) ::
   <strong>view_internal</strong> => <a href='/Users/blaise/Development/mef90/main/doc/html/proc/mef90defmechcellsetoptionsview.html'>MEF90DefMechCellSetOptionsView</a>
