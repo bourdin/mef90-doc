@@ -1,3 +1,12 @@
+> ## This repository has moved
+>
+> The mef90/vDef documentation is now built from
+> **https://gitlab.com/blaisebourdin/mef90-doc** and published by GitLab Pages at
+> **https://docs.mef90.org**.
+>
+> mef90/vDef itself is developed at https://gitlab.com/blaisebourdin/mef90.
+> This GitHub copy is archived and no longer updated.
+
 # mef90.github.io
 The documentation pages for [mef90 / vDef: A reference implementation of the variational approach to fracture](http://github.com/bourdin/mef90), as described in:
 
