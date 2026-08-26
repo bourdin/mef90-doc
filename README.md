@@ -1,10 +1,10 @@
 > ## This repository has moved
 >
 > The mef90/vDef documentation is now built from
-> **https://gitlab.com/blaisebourdin/mef90-doc** and published by GitLab Pages at
+> **https://gitlab.com/mef90/mef90-doc** and published by GitLab Pages at
 > **https://docs.mef90.org**.
 >
-> mef90/vDef itself is developed at https://gitlab.com/blaisebourdin/mef90.
+> mef90/vDef itself is developed at https://gitlab.com/mef90/mef90.
 > This GitHub copy is archived and no longer updated.
 
 # mef90.github.io
